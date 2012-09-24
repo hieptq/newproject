@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <vouchercode_adminhtml_vouchercode_index>
+        <reference name="content">
+            <block type="vouchercode/adminhtml_vouchercode" name="vouchercode" />
+        </reference>
+    </vouchercode_adminhtml_vouchercode_index>
+</layout>

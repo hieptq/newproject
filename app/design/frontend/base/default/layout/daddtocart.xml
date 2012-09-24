@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<default>
+		<reference name="head">
+			<action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+			<action method="addItem"><type>skin_js</type><name>js/bundle.js</name></action>
+
+            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/template" name="ajaxaddtocart.footer" template="ajaxaddtocart/common.phtml" />
+		</reference>
+		
+		<reference name="cart_sidebar">
+			<action method="addItemRender"><type>simple</type><block>ajaxaddtocart/checkout_sidecart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+			<action method="addItemRender"><type>grouped</type><block>ajaxaddtocart/checkout_sidecart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+			<action method="addItemRender"><type>configurable</type><block>ajaxaddtocart/checkout_sidecart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+			<action method="addItemRender"><type>bundle</type><block>ajaxaddtocart/checkout_sidecart_item_renderer_bundle</block><template>checkout/cart/sidebar/default.phtml</template></action>
+			<block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+				<label>Shopping Cart Sidebar Extra Actions</label>
+			</block>
+		</reference>
+	</default>
+	
+	<catalog_category_default>
+		<reference name="category.products">
+			<block type="ajaxaddtocart/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
+				<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager"/>
+					<!-- The following code shows how to set your own pager increments -->
+					<!--
+						<action method="setDefaultListPerPage"><limit>4</limit></action>
+						<action method="setDefaultGridPerPage"><limit>9</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
+						<action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
+					-->
+				</block>
+				<action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+				<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+			</block>
+		</reference>
+	</catalog_category_default>
+	
+	<catalog_category_layered>
+		<reference name="category.products">
+			<block type="ajaxaddtocart/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
+				<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager"/>
+					<!-- The following code shows how to set your own pager increments -->
+					<!--
+						<action method="setDefaultListPerPage"><limit>4</limit></action>
+						<action method="setDefaultGridPerPage"><limit>9</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
+						<action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
+						<action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
+					-->
+				</block>
+				<action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+				<action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+				<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+			</block>
+		</reference>
+	</catalog_category_layered>
+	
+	<checkout_cart_index>
+		<reference name="checkout.cart">
+			<action method="addItemRender"><type>simple</type><block>ajaxaddtocart/checkout_cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
+			<action method="addItemRender"><type>grouped</type><block>ajaxaddtocart/checkout_cart_item_renderer_grouped</block><template>checkout/cart/item/default.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>ajaxaddtocart/checkout_cart_item_renderer_configurable</block><template>checkout/cart/item/default.phtml</template></action>
+			<action method="addItemRender"><type>bundle</type><block>ajaxaddtocart/checkout_cart_item_renderer_bundle</block><template>checkout/cart/item/default.phtml</template></action>			
+			
+			<block type="ajaxaddtocart/checkout_cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/>
+		</reference>
+		
+		<reference name="content">
+			<!--<block type="ajaxaddtocart/checkout_cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/>-->
+		</reference>
+	</checkout_cart_index>
+	
+	<ajaxaddtocart_cart_updateitemoptions></ajaxaddtocart_cart_updateitemoptions>
+	
+	<ajaxaddtocart_cart_add>
+		<remove name="product.info.addto"/>
+	</ajaxaddtocart_cart_add>
+	
+	<ajaxaddtocart_cart_index>
+		<update handle="checkout_cart_index" />
+	</ajaxaddtocart_cart_index>
+	
+	<ajaxaddtocart_cart_sidebardelete></ajaxaddtocart_cart_sidebardelete>
+	
+	<product_type_data_simple>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="catalog/product_view_type_simple" name="product.info.simple" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.simple.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+    </product_type_data_simple>
+	
+	<product_type_data_virtual>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="catalog/product_view_type_virtual" name="product.info.virtual" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.virtual.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+    </product_type_data_virtual>
+	
+	<product_type_data_downloadable>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="downloadable/catalog_product_view_type" name="product.info.downloadable" as="product_type_data" template="downloadable/catalog/product/type.phtml">
+                 <block type="downloadable/catalog_product_samples" name="product.info.downloadable.samples" as="samples" template="downloadable/catalog/product/samples.phtml"/>
+                 <block type="cataloginventory/stockqty_default" name="product.info.downloadable.extra" as="product_type_data_extra" template="cataloginventory/stockqty/default.phtml"/>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="downloadable/catalog_product_links" name="product.info.downloadable.options" as="type_downloadable_options" before="-" template="downloadable/catalog/product/links.phtml"/>
+            <action method="insert"><block>product.info.downloadable.options</block></action>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+    </product_type_data_downloadable>
+	
+	<product_type_data_configurable>
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="catalog/product_view_type_configurable" name="product.info.configurable" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.configurable.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="catalog/product_view_type_configurable" name="product.info.options.configurable" as="options_configurable" before="-" template="catalog/product/view/type/options/configurable.phtml"/>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+	</product_type_data_configurable>
+	
+	<product_type_data_grouped>
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="catalog/product_view_type_grouped" name="product.info.grouped" as="product_type_data" template="catalog/product/view/type/grouped.phtml">
+                <block type="core/text_list" name="product.info.grouped.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+	</product_type_data_grouped>
+	
+	<product_type_data_bundle>
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle" as="product_type_data" template="bundle/catalog/product/view/type/bundle.phtml">
+                <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+                <block type="bundle/catalog_product_price" name="bundle.prices" as="bundle_prices" template="bundle/catalog/product/view/price.phtml">
+                    <action method="setMAPTemplate"><tmpl>catalog/product/price_msrp_item.phtml</tmpl></action>
+                </block>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle.options" as="type_bundle_options" template="bundle/catalog/product/view/type/bundle/options.phtml">
+                <action method="addRenderer"><type>select</type><block>bundle/catalog_product_view_type_bundle_option_select</block></action>
+                <action method="addRenderer"><type>multi</type><block>bundle/catalog_product_view_type_bundle_option_multi</block></action>
+                <action method="addRenderer"><type>radio</type><block>bundle/catalog_product_view_type_bundle_option_radio</block></action>
+                <action method="addRenderer"><type>checkbox</type><block>bundle/catalog_product_view_type_bundle_option_checkbox</block></action>
+            </block>
+            <action method="insert"><block>product.info.bundle.options</block></action>
+        </reference>
+        <reference name="product.info.options.wrapper.bottom">
+            <remove name="product.tierprices" />
+            <block type="bundle/catalog_product_view" name="bundle.tierprices" as="tierprices" before="-" template="bundle/catalog/product/view/tierprices.phtml"/>
+            <block type="cataloginventory/qtyincrements" name="product.info.extrahint" as="extrahint" template="cataloginventory/qtyincrements.phtml"/>
+        </reference>
+        <reference name="product.clone_prices">
+            <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/view/price.phtml</template></action>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/addtocart.phtml</template></action>
+		</reference>
+	</product_type_data_bundle>
+	
+	<ajaxaddtocart_cart_configure translate="label">
+        <label>Configure Cart Item</label>
+        <update handle="catalog_product_view"/>
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+            <block type="ajaxaddtocart/checkout_cart_item_configure" name="checkout.cart.item.configure.block"></block>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		
+		<remove name="product.info.addto"/>
+    </ajaxaddtocart_cart_configure>
+	
+	<ajaxaddtocart_cart_configure_simple>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="catalog/product_view_type_simple" name="product.info.simple" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.simple.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+    </ajaxaddtocart_cart_configure_simple>
+	
+	<ajaxaddtocart_cart_configure_virtual>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="catalog/product_view_type_virtual" name="product.info.virtual" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.virtual.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+    </ajaxaddtocart_cart_configure_virtual>
+	
+	<ajaxaddtocart_cart_configure_downloadable>
+        <update handle="catalog_product_view" />
+        <reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="downloadable/catalog_product_view_type" name="product.info.downloadable" as="product_type_data" template="downloadable/catalog/product/type.phtml">
+                 <block type="downloadable/catalog_product_samples" name="product.info.downloadable.samples" as="samples" template="downloadable/catalog/product/samples.phtml"/>
+                 <block type="cataloginventory/stockqty_default" name="product.info.downloadable.extra" as="product_type_data_extra" template="cataloginventory/stockqty/default.phtml"/>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="downloadable/catalog_product_links" name="product.info.downloadable.options" as="type_downloadable_options" before="-" template="downloadable/catalog/product/links.phtml"/>
+            <action method="insert"><block>product.info.downloadable.options</block></action>
+        </reference>
+		<reference name="product.info.options">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/options.phtml</template></action>
+        </reference>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+    </ajaxaddtocart_cart_configure_downloadable>
+	
+	<ajaxaddtocart_cart_configure_configurable translate="label">
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="catalog/product_view_type_configurable" name="product.info.configurable" as="product_type_data" template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.configurable.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="catalog/product_view_type_configurable" name="product.info.options.configurable" as="options_configurable" before="-" template="catalog/product/view/type/options/configurable.phtml"/>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+    </ajaxaddtocart_cart_configure_configurable>
+	
+	<ajaxaddtocart_cart_configure_grouped>
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="catalog/product_view_type_grouped" name="product.info.grouped" as="product_type_data" template="catalog/product/view/type/grouped.phtml">
+                <block type="core/text_list" name="product.info.grouped.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+	</ajaxaddtocart_cart_configure_grouped>
+	
+	<ajaxaddtocart_cart_configure_bundle>
+		<update handle="catalog_product_view" />
+		<reference name="product.info">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view.phtml</template></action>
+			<block type="checkout/cart_item_configure" name="checkout.cart.item.configure.block"></block>
+            <block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle" as="product_type_data" template="bundle/catalog/product/view/type/bundle.phtml">
+                <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+                <block type="bundle/catalog_product_price" name="bundle.prices" as="bundle_prices" template="bundle/catalog/product/view/price.phtml">
+                    <action method="setMAPTemplate"><tmpl>catalog/product/price_msrp_item.phtml</tmpl></action>
+                </block>
+            </block>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle.options" as="type_bundle_options" template="bundle/catalog/product/view/type/bundle/options.phtml">
+                <action method="addRenderer"><type>select</type><block>bundle/catalog_product_view_type_bundle_option_select</block></action>
+                <action method="addRenderer"><type>multi</type><block>bundle/catalog_product_view_type_bundle_option_multi</block></action>
+                <action method="addRenderer"><type>radio</type><block>bundle/catalog_product_view_type_bundle_option_radio</block></action>
+                <action method="addRenderer"><type>checkbox</type><block>bundle/catalog_product_view_type_bundle_option_checkbox</block></action>
+            </block>
+            <action method="insert"><block>product.info.bundle.options</block></action>
+        </reference>
+        <reference name="product.info.options.wrapper.bottom">
+            <remove name="product.tierprices" />
+            <block type="bundle/catalog_product_view" name="bundle.tierprices" as="tierprices" before="-" template="bundle/catalog/product/view/tierprices.phtml"/>
+            <block type="cataloginventory/qtyincrements" name="product.info.extrahint" as="extrahint" template="cataloginventory/qtyincrements.phtml"/>
+        </reference>
+        <reference name="product.clone_prices">
+            <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/view/price.phtml</template></action>
+        </reference>
+		
+		<reference name="product.info.addtocart">
+			<action method="setTemplate"><template>ajaxaddtocart/catalog/product/view/updatetocart.phtml</template></action>
+		</reference>
+	</ajaxaddtocart_cart_configure_bundle>
+</layout>

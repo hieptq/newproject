@@ -1,0 +1,307 @@
+<?php
+/**
+ * Contus Support
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@Contus Supportcommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Contus Support to newer
+ * versions in the future. If you wish to customize Contus Support for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_blank
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+
+<?php
+date_default_timezone_set('America/Los_Angeles');
+
+$productIds = Mage::getSingleton('core/session')->getProductIds();
+
+// Check the products is available or not
+if (empty($productIds)) {
+?>
+    <div class="contpad clearfix">
+        <div class="nodealtext clearfix ">  <?php echo "<h1>" . $this->__('No Deal Available') . "</h1>" ?></div>
+    </div>
+<?php
+} else {
+?>
+    <script type="text/javascript">
+        <!--
+        var j =1;
+        if (typeof(BackColor)=="undefined")
+            BackColor = "white";
+        if (typeof(ForeColor)=="undefined")
+            ForeColor= "black";
+        if (typeof(DisplayFormat)=="undefined")
+            DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% Days</span><span class='min'  style='margin:2px 0 0 68px'>%%M%%:</span><span class='sec' style='margin:2px 0 0 93px'>%%S%%</span>";
+        if (typeof(CountActive)=="undefined")
+            CountActive = true;
+        if (typeof(FinishMessage)=="undefined")
+            FinishMessage = "";
+        if (typeof(CountStepper)!="number")
+            CountStepper = -1;
+        if (typeof(LeadingZero)=="undefined")
+            LeadingZero = true;
+        CountStepper = Math.ceil(CountStepper);
+        if (CountStepper == 0)
+            CountActive = false;
+        var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
+        function calcage(secs, num1, num2) {
+           
+            if(secs>259200){
+            if(num1==3600){
+               
+                fullHours=((Math.floor(secs/num1)));//1017
+                days = ((Math.floor(secs/86400)%100000));//42
+                nrHours=fullHours-(24*days);
+                //s=nrHours;
+                s=nrHours.toString();
+                  }
+              else{
+                if(num1==86400){
+                    days = ((Math.floor(secs/num1)%num2));
+                    s = ((Math.floor(secs/num1)));
+                    s1=Math.floor(s/days);
+                   
+                    s=s.toString();
+                }   
+                else
+                s = ((Math.floor(secs/num1)%num2)).toString();
+
+
+            }
+
+                                
+
+                if (LeadingZero && s.length < 2)
+                    s = "0" + s;
+                return  s ;
+
+            }
+            else{
+
+            if(num1==3600){s = ((Math.floor(secs/num1))).toString();}
+            else{s = ((Math.floor(secs/num1)%num2)).toString();}
+            if (LeadingZero && s.length < 2)
+                s = "0" + s;
+            return  s ;
+
+            }
+        }
+        function CountBack(secs,iid,j) {
+            if (secs < 0) {
+                document.getElementById(iid).innerHTML = FinishMessage;
+                var dealimage = "<?php echo $this->getSkinUrl('images/8.png') ?>";
+                var buynowreplace = "<?php echo $this->getSkinUrl('images/deal-closed.png') ?>";
+                document.getElementById('deal_status-'+j).innerHTML ='<img src="'+dealimage+'"  alt="Rate" title="Rate"/><p style="padding-top: 10px;font-family: trebuchet ms;color: white;">Deal closed !</p> ';
+                document.getElementById('scriptbuynow-'+j).innerHTML ='<img src="'+buynowreplace+'"  alt="deal closed" title="deal closed"/>';
+                document.getElementById('scriptbuynow-'+j).setAttribute('href', '#!');
+                document.getElementById('script_gift_box').style.display = "none";
+                document.getElementById('price_value-'+j).innerHTML ='<p style="font-size:33px;"><?php echo $this->__('Closed'); ?></p>';
+                return;
+            }
+            if(secs>259200)
+                      DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% Days</span><span class='min'  style='margin:2px 0 0 68px'>%%H%%:</span><span class='sec' style='margin:2px 0 0 93px'>%%M%%</span>";
+                     else
+                       DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%H%% hours</span><span class='min'  style='margin:2px 0 0 68px'>%%M%%:</span><span class='sec' style='margin:2px 0 0 93px'>%%S%%</span>";
+
+            DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+            DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600, 0));
+            DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+            DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+            document.getElementById(iid).innerHTML = DisplayStr;
+            if (CountActive)
+             setTimeout(function(){CountBack((secs+CountStepper),iid,j)}, SetTimeOutPeriod);
+        }
+        
+        function signup_submit() 
+        {
+            var account_name = document.getElementById('account_name').value;
+            var account_email = document.getElementById('account_email').value;
+            if(account_name == '' || account_email == '') {
+                return false;
+            } 
+            //Submit form
+            document.getElementById('signup').submit();
+        }
+        //-->
+    </script>
+<?php
+    $count = 1;
+    foreach ($productIds as $item) {
+        $productId = $item;
+        if ($count != 1) {
+            $contpadStyle = 'style="margin-top:0px;"';
+        }
+?>
+<div class="top-content">
+    <div class="nine left deal-area">
+		<div class="deal-header">
+			<h1 class="five left">FEATURED</h1>
+				<span class="four right rght-deal-header">
+					<img src="<?php echo $this->getSkinUrl('images/watch.png');?>" alt="" class="left">
+					<span><small>offer ends in</small></span>
+					<div class="timerbox" >
+						<div class="viraiterbg">
+							<div id="countbox_<?php echo $count; ?>" class="cntdwn"></div>
+						</div>
+					</div>
+				</span>
+		</div>
+       <?php
+                $inif = '0';
+                $model = Mage::getModel('catalog/product'); //getting product model
+                $_product = $model->load($productId);
+                $inif = '1';
+                $currencySymbol = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+                $dealstatus = $_product->getDealStatus();
+                $discussionId = $_product->getIdentifier();
+                $discussStatus = Mage::getSingleton('core/session')->getDisStatusID();
+                $fbApiKey = Mage::getSingleton('facebook/config')->getApiKey();
+                /* HDflvplayer. */
+                $videoDetails = Mage::getBlockSingleton('videoupload/videoupload')->getVideoupload($productId);
+                $videoId = 0;
+                foreach ($videoDetails as $video) {
+                    $thumbName = $video->getThumname();
+                    $productId = $video->getentityId();
+                    $videoId = $video->getvideouploadId();
+                }
+                ?>
+
+
+<?php
+                $_gallery = $_product->getMediaGalleryImages();
+                $currentUrl = $this->helper('core/url')->getCurrentUrl();
+                $content = '&amp;';
+                           $appId = Mage::getStoreConfig('customer/facebook/api_id');
+                                $productUrl = $_product->getProductUrl();
+                     
+                //$map =   $_product->getsitemap();
+				$companyname = $_product->getCompanyname();
+                $customersite = $_product->getcustomersite();
+                $highlight = $_product->gethightlight();
+                $fineprint = $_product->getFineprint();
+                $website = $_product->getCustomerWebsite();
+                $map = $_product->getsitemap();
+                $phone = $_product->getQuestions();
+                $_description = $_product->getdescription();
+                $renderDescription = $this->helper('catalog/output')->productAttribute($_product, $_description, 'description');
+				$productName = urlencode($_product->getName());
+       
+                $productDescription = urlencode(strip_tags($_description));
+                                $fbUrl = 'http://www.facebook.com/dialog/feed?app_id=' . $appId . '&amp;description=' . $productDescription . '&amp;picture=' . $productImage . '&amp;name=' . $productName . '&amp;message=&amp;redirect_uri=' . $productUrl . '&amp;link=' . $productUrl;
+             
+        ?>
+             <div class="deal-content">
+    <span class="four left left-col">
+        <img src='<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(210,250); ?>' />
+    </span>
+    <div class="left right-col">
+    <div class="content-col">
+    <h2><?php echo $this->htmlEscape($_product->getName()) ?></h2>
+    <h3><?php  echo $companyname;?></h3>
+    <h3 class="ch-co">LOCAL</h3>
+    <p><?php echo $_product->getShortDescription(); ?></p>
+    <div class="soc-section">
+    <label>SHARE THIS DEAL:</label>
+		<?php
+			$baseUrl = Mage::getBaseUrl();
+			$mailBody = $_description . '<br/> Url : ' . $productUrl;
+			$mail = "mailto:?body=" . htmlspecialchars(strip_tags($mailBody)) . "&amp;subject=" . $_product->getName();
+		?>
+    <ul>
+    <li><a href="http://twitter.com/home?status=<?php echo $_product->getName(); ?>:<?php echo $productUrl; ?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/twitter-small.jpg');?>" alt=""></a></li>
+    <li><a href="<?php echo $fbUrl; ?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/facebook-small.jpg');?>" alt=""></a></li>
+    <li class="clear-margin"><a href="<?php echo $mail; ?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/mail.jpg');?>" alt=""></a></li>
+    </ul>
+    </div>
+   <a href='<?php echo $productUrl;?>'class="btn1">&gt;&gt; view deal</a>
+   <div class="price-section"  style='display:none';>
+    <div class="price">
+    <span><?php $sp_price = floor($_product->getSpecialPrice()); ?>
+<?php echo $currencySymbol . Mage::helper('core')->currency($sp_price, false, true) ?> 
+    </span>only
+    </div>
+    </div>
+    
+
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="three left form-area my-col-right colSignRight">
+    <?php /* if(!Mage::getModel('customer/session')->isLoggedIn()): */ ?>
+		<!-- 
+        <h2>Sign up for a Mymoviedeals account!</h2>
+        <ul>
+    		<form name="signup" id="signup" method="post" action="signup">
+            <li><input type="text" id="account_name" name="account_name" value="" class="t1 required-entry" placeholder='Type your name'></li>
+    		<li><input type="text" id="account_email" name="account_email" value="" class="t1 required-entry validate-email" placeholder='Type your email address'></li>
+    		<div class='clear' style='height:10px;'></div>
+    		<div class="links">
+    			<span class="link1"><a href="javascript:void(0);" onclick="signup_submit();">CONTINUE SIGNING UP</a></span>
+    			<span class="link2"><a href="<?php /* echo Mage::getBaseUrl() */ ?>customer/account/login">ALREADY A MEMBER?</a></span>
+    			<span class="link2"><a href="#">MAYBE LATER</a></span>
+    		</div>
+            </form>
+    		</div>
+    	</ul>
+		-->
+    <?php /* else: */ ?>
+        <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>coinslider/coin-slider.min.js"></script>
+        <link rel="stylesheet" href="<?php echo Mage::getBaseUrl('js') ?>coinslider/coin-slider-styles.css" type="text/css" />
+        <div class="sidebanners"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-sidebanner')->toHtml() ?></div>
+        <script type="text/javascript">
+        	jQuery(document).ready(function() {
+        		jQuery('#sidebanners').coinslider({ width: 300, height: 310, navigation: false, delay: 5000, effect: 'rain', hoverPause: false, navigation: true });
+        	});
+        </script>
+        </div>
+    <?php /* endif; */ ?>
+   </div> 
+
+  <?php
+                            //product's regular Price
+                            $todayDate = Mage::getModel('catalog/product')->getResource()->formatDate($_product->getspecial_to_date(), false);
+                            $expirydate = $todayDate . ' ' . $_product->gettime();
+            
+            ?>
+   <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $count; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $count; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $count; ?>)-(dthen<?php echo $count; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $count; ?>)-(dnow<?php echo $count; ?>));
+                            gsecs<?php echo $count; ?> = Math.floor(ddiff.valueOf()/1000);
+
+                            var iid<?php echo $count; ?> = "countbox_<?php echo $count; ?>";
+                            CountBack(gsecs<?php echo $count; ?>,"countbox_"+j, j);
+                            j++;
+                            //-->
+                        </script>
+<?php } 
+
+}
+?>  

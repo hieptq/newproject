@@ -1,0 +1,32 @@
+/* Reset ================================================================================= */
+*{margin:0;padding:0}body{background:#efefe9;font:12px/1.55 "Open Sans", Arial, sans-serif;color:#2f2f2f;text-align:center}img{border:0;vertical-align:top}a{color:#1e7ec8;text-decoration:underline}a:hover{text-decoration:none}:focus{outline:0}h1,h2,h3,h4,h5,h6{margin:0 0 5px;line-height:1.35;color:#0a263c}h1{font-size:20px;font-weight:normal}h2{font-size:18px;font-weight:normal}h3{font-size:16px;font-weight:bold;color:#333}h4{font-size:14px;font-weight:bold}h5{font-size:12px;font-weight:bold}h6{font-size:11px;font-weight:bold}form{display:inline}fieldset{border:0}legend{display:none}table{border:0;border-spacing:0;empty-cells:show;font-size:100%}caption,th,td{vertical-align:top;text-align:left;font-weight:normal}p{margin:0 0 10px}strong{font-weight:bold}address{font-style:normal;line-height:1.35}cite{font-style:normal}q,blockquote{quotes:none}q:before,q:after{content:''}small,big{font-size:1em}ul,ol{list-style:none}.hidden{display:block!important;border:0!important;margin:0!important;padding:0!important;font-size:0!important;line-height:0!important;width:0!important;height:0!important;overflow:hidden!important}.nobr{white-space:nowrap!important}.wrap{white-space:normal!important}.a-left{text-align:left!important}.a-center{text-align:center!important}.a-right{text-align:right!important}.v-top{vertical-align:top}.v-middle{vertical-align:middle}.f-left,.floatleft,.left{float:left!important}.f-right,.floatright,.right{float:right!important}.f-none{float:none!important}.f-fix{float:left;width:100%}.no-display{display:none}.no-margin{margin:0!important}.no-padding{padding:0!important}.no-bg{background:none!important}
+.clear {clear:both;}
+body { background: url(../images/subscribe_bg.png) #73dbfd no-repeat;}
+.main-subscribe {margin: 200px auto 0 auto; width: 400px; height: auto;}
+.subscribe-container {float:left; background: #FFF; margin-bottom:15px; padding: 10px; height:auto; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -moz-box-shadow: 0 1px 5px #444; -webkit-box-shadow: 0 1px 5px #444; box-shadow: 0 1px 5px #444;}
+.subscribe-container h1 {text-align: center; padding-top:10px; color:#1b8ebd; font-weight: bold;}
+.page_content {background: url(../images/subscribeform-field-bg.png) no-repeat; width: 596px; height: 190px; border: 1px solid #C5E2E8; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#sub-content {margin: 15px; position: relative;}
+#sub-content h3 {color: #FFF; font-weight: bold;}
+#sub-content a.continue {font-size: 18px; position: absolute; right: 0px; width: 209px;}
+#sub-content label { float:left; font-size: 16px; color: #1c90bf; font-weight: bold; padding-bottom: 22px; text-align: left; width: 75px;}
+#sub-content select {float:left; width: 220px; padding: 3px;}
+#sub-content input {float:left; width: 220px; padding: 3px;}
+.button_sub a {color: #03607F; font-weight: bold; font-size: 13px; float: left; margin-left: 15px;}
+.confirm-city-box {margin: 0 auto 15px; width: 150px;}
+.confirm-city-box select {padding:5px; color: #178AEB; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border:none;}
+.mail-box {margin: 0 auto 15px; width: 225px;}
+.mail-box input {padding:5px; color: #178AEB; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border:none; }
+button.button {background: transparent; border: 0;}
+button.button span {display: block; width: 127px; font-size: 22px; line-height: 32px; font-family: helvitica; text-shadow: black 0em 0.1em 0.2em; height: 33px; background: url(../images/subscirbe-btn.png) no-repeat;  padding: 0 5px; text-align: center; white-space: nowrap; color: white;}
+button.button span:hover {cursor: pointer;}
+.button_container {clear:both; float:left; padding-left: 100px;}
+#logo_container {margin:20px auto; width:250px;}
+
+/* Form Validation */
+#advice-validate-email-newsletter1 {text-align:left;}
+#advice-required-entry-city {text-align: left;}
+.validation-advice { background:url(../images/validation_advice_bg.gif) 2px 0 no-repeat; position: absolute; padding-left: 15px; color:#eb340a; margin-left: 75px; margin-top: 28px; width: 200px; height: 15px; overflow: hidden; }
+.validation-failed { background:#faebe7 !important; }
+.validation-passed {}
+p.required { font-size:11px; text-align:right; color:#EB340A; }

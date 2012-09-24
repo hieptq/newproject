@@ -1,0 +1,524 @@
+2012-08-11T21:13:02+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:13:02Z
+            [CORRELATIONID] => 727947028c9b0
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3332236
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11373
+)
+
+2012-08-11T21:13:04+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [getPalDetails] => Array
+        (
+            [METHOD] => getPalDetails
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [PAL] => 22K5689TNKCV2
+            [LOCALE] => en_US
+            [TIMESTAMP] => 2012-08-11T21:13:04Z
+            [CORRELATIONID] => 15a737d8938b0
+            [ACK] => Success
+            [VERSION] => 72.0
+            [BUILD] => 3435050
+        )
+
+    [__pid] => 11374
+)
+
+2012-08-11T21:13:23+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:13:23Z
+            [CORRELATIONID] => 9cadce292818f
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3332236
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11375
+)
+
+2012-08-11T21:13:36+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:13:36Z
+            [CORRELATIONID] => 2b886a3c4b6ba
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3332236
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11377
+)
+
+2012-08-11T21:14:06+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:14:06Z
+            [CORRELATIONID] => 8a0ab0cb3218f
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3332236
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11384
+)
+
+2012-08-11T21:14:15+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:14:15Z
+            [CORRELATIONID] => b543ee051cf84
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3435050
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11386
+)
+
+2012-08-11T21:16:53+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:16:53Z
+            [CORRELATIONID] => 8e1ab37e3a712
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3435050
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11477
+)
+
+2012-08-11T21:17:02+00:00 DEBUG (7): Array
+(
+    [url] => https://api-3t.sandbox.paypal.com/nvp
+    [SetExpressCheckout] => Array
+        (
+            [PAYMENTACTION] => Authorization
+            [AMT] => 30.00
+            [CURRENCYCODE] => USD
+            [RETURNURL] => http://montereypark.mobi/index.php/paypal/express/return/
+            [CANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [INVNUM] => 100000001
+            [SOLUTIONTYPE] => Mark
+            [GIROPAYCANCELURL] => http://montereypark.mobi/index.php/paypal/express/cancel/
+            [GIROPAYSUCCESSURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [BANKTXNPENDINGURL] => http://montereypark.mobi/index.php/checkout/onepage/success/
+            [LOCALECODE] => en_US
+            [ITEMAMT] => 30.00
+            [TAXAMT] => 0.00
+            [SHIPPINGAMT] => 0.00
+            [L_NUMBER0] => 6
+            [L_NAME0] => 5 PACK OF MOVIE TICKETS FOR $30
+            [L_QTY0] => 1
+            [L_AMT0] => 30.00
+            [BUSINESS] => 
+            [NOTETEXT] => 
+            [EMAIL] => 
+            [FIRSTNAME] => Asher
+            [LASTNAME] => Ali
+            [MIDDLENAME] => 
+            [SALUTATION] => 
+            [SUFFIX] => 
+            [COUNTRYCODE] => US
+            [STATE] => AK
+            [CITY] => NA
+            [STREET] => NA
+            [ZIP] => 38000
+            [PHONENUM] => 0000000000
+            [SHIPTOCOUNTRYCODE] => US
+            [SHIPTOSTATE] => AK
+            [SHIPTOCITY] => NA
+            [SHIPTOSTREET] => NA
+            [SHIPTOZIP] => 38000
+            [SHIPTOPHONENUM] => 0000000000
+            [SHIPTOSTREET2] => 
+            [STREET2] => 
+            [SHIPTONAME] => Asher Ali
+            [ADDROVERRIDE] => 1
+            [METHOD] => SetExpressCheckout
+            [VERSION] => 72.0
+            [USER] => ****
+            [PWD] => ****
+            [SIGNATURE] => ****
+            [BUTTONSOURCE] => Varien_Cart_EC_US
+        )
+
+    [response] => Array
+        (
+            [TIMESTAMP] => 2012-08-11T21:17:02Z
+            [CORRELATIONID] => 27a762d8dd2e4
+            [ACK] => Failure
+            [VERSION] => 72.0
+            [BUILD] => 3332236
+            [L_ERRORCODE0] => 10736
+            [L_SHORTMESSAGE0] => Shipping Address Invalid City State Postal Code
+            [L_LONGMESSAGE0] => A match of the Shipping Address City, State, and Postal Code failed.
+            [L_SEVERITYCODE0] => Error
+        )
+
+    [__pid] => 11482
+)
+

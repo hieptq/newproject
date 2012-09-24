@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <DevelopersIndia_AjaxAddToCart>
+      <active>true</active>
+      <codePool>local</codePool>
+    </DevelopersIndia_AjaxAddToCart>
+  </modules>
+</config>

@@ -1,0 +1,174 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+$storeName =Mage::getStoreConfig('general/store_information/name');
+
+$currencySymbol = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+$select = "";
+$cities = array();
+$attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product', 'dealcity');
+$attribute = Mage::getModel('eav/config')->getAttribute('catalog_product', $attributeId); // get the cities attribute id 548
+
+// to get the multiple cities in pages(drop down)
+foreach ($attribute->getSource()->getAllOptions(true, true) as $option) {
+    $value = $option['value'];
+
+    if($value !='') {
+        $cities[$value] = $option['label'];
+        $select .= "<option value='".$option['value']."'>". $option['label']."</option>";
+        $cityUrl=Mage::getModel('deal/deal')->getCityUrl($value);
+        $city[$option['label']] = $cityUrl;
+    }
+}
+$final=array_unique($cities);
+
+Mage::getSingleton('core/session')->setTotalCities($final);
+Mage::getSingleton('core/session')->setCitydropdown($select);
+
+if(Mage::getSingleton('core/session')->getBackground() == 'no'){
+    $style = "";
+}else{
+    $style ="background:none;";
+}
+//For SEO Url
+$page=$_SERVER['REQUEST_URI'];
+$page=explode('/',$page);
+$pageUrl=$page;
+
+$recent=Mage::getStoreConfig('deal/recent/as_recent');
+$active=Mage::getStoreConfig('deal/active/as_active');
+$upcoming=Mage::getStoreConfig('deal/upcoming/as_upcoming');
+?>
+<!--MORE CITIES TOP MENU STARTS HERE-->
+
+    <div id="toggle_blind" style="display:none;">
+                <div id='division_drawer'>
+                    <ul class='clearfix' id='division_list1'>
+                        <?php foreach($final as $key=>$item): if($item!=""):?>
+                        <li>
+                            <a href="<?php echo $city[$item]; ?>"><?php echo strtoupper($item); ?></a>
+                        </li>
+                            <?php endif ;
+                        endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+<!--MORE CITIES TOP MENU ENDS HERE-->
+<div class="header-container" style="<?php echo $style; ?>">
+    <div class="header">
+            <h1 class="logo"><strong></strong>
+                <a onclick="location.href='<?php echo $this->getUrl('') ?>'"><img src="<?php echo $this->getSkinUrl('images/logo.gif') ?>" alt="<?php echo $this->__($storeName); ?>" title="<?php echo $this->__($storeName); ?>" /></a>
+             </h1><!-- .logo section -->
+            <!-- Cities panel starts-->
+                     <ul class="links-cities">
+                         <li class="last">
+                            <a href="#" onclick="Effect.toggle('toggle_blind', 'blind',{  duration: 0.1 }); return false;" class="clsmore ">
+                                <span class="more_cities"><?php echo $this->__('Visit More Cities'); ?></span>
+<!--                                <img src="<?php echo $this->getSkinUrl('images/nc.png') ?>" id="image1" class="clsvisitmorimg"  alt="cities" />-->
+                            </a>
+                             </li></ul>
+                     <?php echo $this->getChildHtml('topLinks'); ?>           
+           <!-- Cities panel End-->
+            <div class="multi-store">
+                <?php echo $this->getChildHtml('store_language') ?>
+            </div>
+           
+           <div class="city_name">
+                    <span class="clsbestdeal"><?php echo $this->__('Deal in'); ?></span>
+                    <h4><?php echo $final[Mage::getSingleton('core/session')->getCity()]; ?></h4>
+                </div>
+            <!-- subscriber panel starts-->
+            <div class="clsmailing" >
+                <form action="<?php echo $this->getUrl('newsletter/subscriber/new') ?>" method="post" id="newsletter-validate-detail">
+                    
+                        <div class="searchinput" >
+                            <input name="email" type="text" id="newsletter1" class="searchinput1 validate-email required-entry" value="<?php echo $this->__('Enter your email address here...') ;?>" onfocus="if (this.value == '<?php echo $this->__('Enter your email address here...') ;?>') {this.value = '';this.style.color ='black';}" onblur="if (this.value == '') {this.style.color ='black';this.value = '<?php echo $this->__('Enter your email address here...') ;?>';}"  /></div>
+                        <div class="selectcity"><select id="city" name="city"  class="select select input-text required-entry">
+                                <option value=""><?php echo $this->__('Select your City') ;?></option>
+                                <?php echo $select; ?>               </select>
+                        </div>
+                        <input type="submit"   value="<?php echo $this->__('Subscribe') ;?>" class="mailing_button"/>
+
+                </form>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+                    //]]>
+                </script>
+            </div>
+            <!-- subscriber panel end-->
+    </div>
+</div>
+<!-- Menu Navigation -->
+      <div id="menu_middlebg">
+            <ul class="clsmenuul" >
+<li <?php if(Mage::getSingleton('core/session')->getDealModule() == 1)
+                                echo 'class="active"'; ?>><a href="<?php echo Mage::getBaseUrl(); ?>" >
+<?php echo $this->__("TODAY'S DEAL") ?></a>
+                </li>
+                <?php if($recent == 1){?>
+                <li <?php if (in_array('recent-deals.html', $pageUrl))
+                                echo 'class="active"'; ?>><a href="<?php echo Mage::getBaseUrl(); ?>recent-deals.html" ><?php echo $this->__('RECENT DEALS') ?></a>
+                    </li>
+                    <?php }?>
+                    <?php if($active == 1){?>
+                <li <?php if (in_array('active-deals.html', $pageUrl))
+                                echo 'class="active"'; ?>><a href="<?php echo Mage::getBaseUrl(); ?>active-deals.html" ><?php echo $this->__('ACTIVE DEALS') ?></a>
+                    </li>
+                    <?php }?>
+                    <?php if($upcoming == 1){?>
+                <li <?php if (in_array('upcoming-deals.html', $pageUrl))
+                                echo 'class="active"'; ?>><a href="<?php echo Mage::getBaseUrl(); ?>upcoming-deals.html" ><?php echo $this->__('UPCOMING DEALS') ?></a>
+                    </li>
+                    <?php }?>
+                    <li <?php if (Mage::getSingleton('cms/page')->getIdentifier() == 'works')
+                                echo 'class="active"'; ?>><a href="<?php echo Mage::getBaseUrl(); ?>works" ><?php echo $this->__('HOW IT WORKS') ?></a>
+                    </li>
+            </ul>
+            <ul class="floginul">
+                <?php $loggedIn = $this->helper("customer")->isLoggedIn(); //place the output in a var ?>
+                <?php
+                                if ($loggedIn) {
+                                    if (isset($_COOKIE['fbsr_' . Mage::getSingleton('facebook/config')->getApiKey()])) {
+                ?>
+                                        <li><div id="user-info"></div></li>
+                                        <li><a href="<?php echo Mage::getBaseUrl() . "customer/account/logout/" ?>"  title="Facebook Logout"  rel="facebook-connect" id="fb-auth"></a></li>
+                <?php
+                                    }
+                                } else {
+                ?>
+
+                                    <li><div style="cursor:pointer;" title="Facebook Connect"  rel="facebook-connect" id="fb-auth"><img src="<?php echo $this->getSkinUrl('images/flogin.jpg') ?>" id="facebook" alt="facebook login" /></div></li>
+                                    <li class="or"><?php echo $this->__('or'); ?></li>
+                                    <li><a href="<?php echo Mage::getBaseUrl() . "customer/account/login/" ?>"  title="Sign in" class="clsflogin"   ><?php echo $this->__('Sign In'); ?></a></li>
+                <?php } ?>
+                            </ul>
+        </div>  

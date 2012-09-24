@@ -1,0 +1,332 @@
+<!--
+Created by Contussupport
+www.contussupport.com
+-->
+<!-- Today's side deal -->
+<div class='mid-content latest-deals'>
+<h3>LATEST DEALS...</h3>
+    
+
+    <ul>
+        <script type="text/javascript">
+    //var eff = jQuery.noConflict();
+    $j(function(){
+        $j('#loopedslider').loopedSlider({
+            autoHeight: false,
+            containerClick: false,
+            autoStart:4000,
+            restart: 4000,
+            slidespeed: 500
+        });
+        $j('#loopedslider1').loopedSlider({
+            autoHeight: false,
+            containerClick: false,
+            autoStart:4000,
+            restart: 4000,
+            slidespeed: 500
+        });
+    });
+</script>
+<?php
+/* Condition for displaying the sidedeal in the main deal page */
+$currencySymbol = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+$id = Mage::app()->getRequest()->getParam('id');
+$config = Mage::getModel('deal/deal')->getConfig('deal/category/sidedeal');
+$sidedeal = $config['value'];
+$isSlide = Mage::getStoreConfig('deal/sidedeal/enable_slide');
+$catId = $sidedeal; // put your category ID in here
+$title = $this->__('Todays Side Deal');
+if (isset($id)) {
+    $config = Mage::getModel('deal/deal')->getConfig('deal/category/maindeal');
+    $maindeal = $config['value'];
+    $catId = $maindeal;
+}
+
+$cities = array();
+$desc = '';
+$baseUrl = Mage::getBaseUrl();
+$dealsCity = Mage::getSingleton('core/session')->getCity();
+//getting the current city
+$Totalcities = Mage::getSingleton('core/session')->getTotalCities();
+$dealsCityName = $Totalcities[$dealsCity];
+if (isset($maindeal)) {
+
+    $productIds = Mage::getModel('deal/deal')->activedeals($dealsCity,$catId);
+    $i =0;
+     foreach ($productIds as $key=>$item) {
+        if($key>2)
+            break;
+        $productId = $item;
+
+        if ($productId != $id) {
+        	$model = Mage::getModel('catalog/product');
+    	    $_product = $model->load($productId);
+            $city = $_product->getAttributeText('dealcity');
+           
+                //if($city == $dealsCityName ) {
+               
+                    $productId = $_product->getId();
+                    $images = $this->helper('catalog/image')->init($_product, 'image');
+                    $desc = $_product->getName();
+                    //break;
+                    $URL = $_product->getProductUrl();
+
+                    if ($desc != '') {
+                        $title = $this->__('Todays Main Deal');
+                         if($isSlide == 0) {
+                        if($i==0)
+                        {
+                        //	echo '<div class="block block-cart">
+                          //  <div class="block-title"><strong>'. $this->__($title).'</strong></div>';
+                        }
+                        
+?>
+
+                        
+                                    <div class="block-content">
+                                <div class="midpix">
+                                    <div class="midtxt">
+                                        <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="191" height="131" alt=""/></a>
+                                        <div class="deal_content"><a href="<?php echo $URL; ?>"><?php echo $desc; ?></a></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        
+<?php
+ 
+
+                         }
+                         else {if($i==0)
+                        {
+                              echo '<div class="block block-cart">
+            
+            <div class="block-content">
+                <div class="midpix">
+                    <!-- Start of Slick Slider for Active Deals -->
+                    <div id="loopedslider">
+                        <div class="container">
+                            <div class="slides">';
+                        }
+                        ?>
+                                            <div>
+                                                <div class="midtxt">
+                                                    <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="191" height="131" alt=""/></a>
+                                                    <div class="side-deal-content"><a href="<?php echo $URL; ?>"><?php echo substr($this->htmlEscape($desc), 0, 40) . "..." ?></a></div>
+                                                </div>
+                                                    
+
+                                            </div>
+                        <?php
+                                        
+                                   
+                                
+                           
+                       
+                         	
+                         }
+                         $i++;
+                    }
+              
+            
+        }
+    }
+if($i!=0 && $isSlide == 0)
+                        {
+                        	echo '</div>';
+                        }
+                        elseif($i!=0 && $isSlide !=0){
+                        	echo ' </div>
+                </div>
+
+                <div class="floatleft slidearrow">
+                    <a href="#" class="previous"><img src="'.$this->getSkinUrl('images/left-arrow.png') .'" width="15" height="16" alt="previous" /></a>
+                    <h2 style="width:165px; float:left; text-align:center;"></h2>
+                    <a href="#" class="next"><img src="'.$this->getSkinUrl('images/right-arrow.png').' "width="15" height="16" alt="left" class="floatright"/></a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            <!-- End of Slick Slider for Active Deals -->
+        </div>
+
+    </div>
+</div>';
+                        }
+    $catId = $sidedeal;
+}
+
+$products = Mage::getModel('deal/deal')->activedeals($dealsCity,$catId);
+$products=array_reverse($products);
+$productCount = count($products);
+
+$title = $this->__('Todays Side Deal');
+
+
+ 
+//echo count($productCount);die;
+if ($productCount > 0) {
+    if ($isSlide != 0 && $productCount != 1) {
+?>
+                <div class="block block-cart">
+            
+            <div class="block-content">
+                <div class="midpix">
+                    <!-- Start of Slick Slider for Active Deals -->
+                    <div id="loopedslider1">
+                        <div class="container">
+                            <div class="slides">
+                        <?php
+                        foreach ($products as $key=>$item) {
+                            if($key>2)
+                                break;
+                          $productId = $item;
+
+                            if ($productId != $id) {
+                            	$model = Mage::getModel('catalog/product');
+    	        				$_product = $model->load($productId);
+                                $city = $_product->getAttributeText('dealcity');
+                                
+                                
+                                    //if($city == $dealsCityName ) {
+                                 
+                                        $productId = $_product->getId();
+                                        $images = $this->helper('catalog/image')->init($_product, 'image');
+                                        $desc = $_product->getName();
+                                        //break;
+                                        if ($flag == 1) {
+                                            $title = "Extra Side Deal";
+                                        }
+                                        $flag = 1;
+                                        $URL = $_product->getProductUrl();
+
+                                        if ($desc != '') {
+                        ?>
+                                            <div>
+                                               <div class="midtxt">
+                                                    <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="191" height="131" alt=""/></a>
+                                                    <div class="side-deal-content"><a href="<?php echo $URL; ?>"><?php echo substr($this->htmlEscape($desc), 0, 40) . "..." ?></a></div>
+                                                </div>
+
+                                            </div>
+                        <?php
+                                        }
+                                   
+                                
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="floatleft slidearrow">
+                    <a href="#" class="previous"><img src="<?php echo $this->getSkinUrl('images/left-arrow.png') ?>"width="15" height="16" alt="previous" /></a>
+                    <h2 style="width:165px; float:left; text-align:center;"><?php //echo $this->__('<< Slide Between Deals >>');     ?></h2>
+                    <a href="#" class="next"><img src="<?php echo $this->getSkinUrl('images/right-arrow.png') ?> "width="15" height="16" alt="left" class="floatright"/></a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            <!-- End of Slick Slider for Active Deals -->
+        </div>
+
+    </div>
+</div>
+<!-- end of Today's side deal -->
+<?php
+     } else {
+     
+$i= 0;
+$cc=10;
+        foreach ($products as $key=>$item) {
+            if($key>5)break;
+                          $productId = $item;
+
+            if ($productId != $id) {
+            	$model = Mage::getModel('catalog/product');
+    	        $_product = $model->load($productId);
+                $city = $_product->getAttributeText('dealcity');
+               
+                    //if($city == $dealsCityName ) {
+                   
+                        $productId = $_product->getId();
+                        $images = $this->helper('catalog/image')->init($_product, 'image')->resize(135,160);
+                        $desc = $_product->getName();
+                        //break;
+                        $URL = $_product->getProductUrl();
+
+                        if ($desc != '') {
+                            $title = $this->__('Todays Side Deal');
+                        if($i==0)
+                        {
+                        	}
+?>
+
+<li>
+<?php $categories = $_product->getCategoryIds(); ?>
+<div class="list">
+
+    <h5>
+		<?php $_category = Mage::getModel('catalog/category')->load($categories[1]) ?>
+		<?php echo $_category->getName() ?>
+	</h5>
+    <div class="top-sec"><h4><?php echo $_product->getDealLocation(); ?></h4>
+    <span class="dura">
+        <?php
+                            //product's regular Price
+                            $todayDate = Mage::getModel('catalog/product')->getResource()->formatDate($_product->getspecial_to_date(), false);
+                            $expirydate = $todayDate . ' ' . $_product->gettime();
+							$companyname = $_product->getCompanyname();
+
+            ?>
+     <div class='viraiterbg'><div id='countbox_<?php echo $cc;?>' class='cntdwn'></div></div>
+     </span></div>
+    <div class="grid-block"> 
+    <span class="deal-img">
+    <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="136" height="160" alt=""/></a>
+     </span>
+     
+     <div class="right-grid">
+    <div class="min-height"><h6><?php echo $desc;?></h6>
+    <span><?php  echo $companyname;?></span></div>
+    <a href='<?php echo $URL; ?>'class="btn1 btn4">&gt;&gt; view deal</a>
+     </div>
+     
+    </div>
+    </div>
+
+     <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $cc; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $cc; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $cc; ?>)-(dthen<?php echo $cc; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $cc; ?>)-(dnow<?php echo $cc; ?>));
+                            gsecs<?php echo $cc; ?> = Math.floor(ddiff.valueOf()/1000);
+                            
+                            var iid<?php echo $cc; ?> = "countbox_<?php echo $cc; ?>";
+                            CountBack(gsecs<?php echo $cc; ?>,iid<?php echo $cc; ?>, j);
+                            j++;
+                            
+                            //-->
+                        </script>
+</li>
+<?php
+ $i++;
+     $cc++;                   }
+                   
+               
+            }
+        }
+         if($i!=0)
+                        {
+                        	echo '</div>';
+                        }
+    }
+} ?>
+</ul>
+</div>

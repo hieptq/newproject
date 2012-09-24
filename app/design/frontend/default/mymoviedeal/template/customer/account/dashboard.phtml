@@ -1,0 +1,164 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$customer = Mage::getSingleton('customer/session')->getCustomer();
+$email = $customer->getEmail();// To get Email Id of a customer
+$firstname = $customer->getFirstname();// To get Firstname of a customer
+$lastname= $customer->getLastname();// To get Last name of a customer
+$customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultBilling();
+if ($customerAddressId){
+       $address = Mage::getModel('customer/address')->load($customerAddressId);
+}
+
+$action=$this->getUrl('customer/account/editPost/');
+?>
+<div class="content-block">
+
+<div class="dashboard">
+    <div class="page-header">
+        <h1><?php echo $this->__('MY DASHBOARD') ?></h1>
+    </div>
+    <div class='myaccountmenu'>
+            <ul>
+                    <li>
+                            <a href='<?php echo $this->getUrl('customer/account');?>' class='selected'>My Account</a>
+                    </li>
+
+                    <li>
+                        <?php if($customerAddressId):?>
+                        <a href='<?php echo $this->getUrl('customer/address/edit/id/'.$customerAddressId);?>'>Address Book</a>
+                    <?php else:?>
+                        <a href='<?php echo $this->getUrl('customer/address/edit/id/');?>'>Address Book</a>
+                    <?php endif;?>
+                    </li>
+                    <li>
+                        <a href='<?php echo $this->getUrl('sales/order/history');?>'>My Orders</a>
+
+                    </li>
+                  
+            </ul>
+
+
+    </div>
+    <div class='clear'></div>
+
+               <form action="<?php echo $action ?>" method="post" id="form-validate">
+        <?php echo $this->getBlockHtml('formkey')?>
+
+    <div class='accountinfo'>
+       <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+            <ul>
+                            <li><strong>Name:</strong> <?php echo $firstname.' '.$lastname;?></li>
+                            <li class='paddingTop'><strong style='margin-top:5px;'>Email:</strong>
+                             <label class='email' style='margin-top:5px;'><?php echo $email;?> <a href='javascript:showEmail()'>Edit</a></label>
+<input type="text" name="email" id="email" value="<?php echo $email;?>" title="Email Address" class="input-text required-entry validate-email" style='display:none;' rel='<?php echo $email;?>'>
+                         </li>
+                            <li><strong>Address:</strong> <?php if($customerAddressId){echo $address->getData('street').', '.$address->getData('city').', '.$address->getData('region').', '.$address->getData('postcode').', '.$address->getData('telephone');}  ?> <?php if($customerAddressId):?><a href='<?php echo $this->getUrl('customer/address/edit/id/'.$customerAddressId);?>'>Edit</a><?php else:?><a href='<?php echo $this->getUrl('customer/address/edit/');?>'>Add</a><?php endif;?></li>
+                            
+                            <li class='paddingTop'><strong>Change password</strong></li>
+                            <li>
+                                         <input type="checkbox"  style='display:none' name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" />
+
+                                 <input type="password" title="<?php echo $this->__('Current Password') ?>" placeholder="<?php echo $this->__('Current Password') ?>" class="input-text required-entry" name="current_password" id="current_password" />
+                              <input type="password" title="<?php echo $this->__('New Password') ?>"  placeholder="<?php echo $this->__('New Password') ?>"class="input-text required-entry validate-password" name="password" id="password" />
+                    <input type="password" title="<?php echo $this->__('Confirm New Password') ?>" placeholder="<?php echo $this->__('Confirm New Password') ?>" class="input-text required-entry validate-cpassword" name="confirmation" id="confirmation" />
+
+                            </li>
+                                     
+                        <li>
+   <?php echo $this->getChildHtml('newsletter') ?>
+
+                        </li>
+        
+<li>
+    <button type="submit" title="<?php echo $this->__('SAVE CHANGES') ?>" class="button"><span><span><?php echo $this->__('SAVE CHANGES') ?></span></span></button>
+    <span class='reset' onClick='resetForm()'><?php echo $this->__('Reset') ?></span>
+
+</li>
+                    </ul>
+
+
+            </ul>
+              </form>
+
+</div>
+<?php echo $this->getChildHtml('cart_sidebar');?>
+                              
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate');
+//]]>
+$j(document).ready( function (){
+    $j('#password').change( function (){
+        if($j('#password').attr('value')!='')
+            $j('#change_password').attr('checked',true);
+        else
+            $j('#change_password').attr('checked',true);
+
+    });
+
+});
+
+function resetForm(){
+
+     $j('.email').show();
+    $j('.validate-email').hide();
+    $j('.validate-email').attr('value',$j('.validate-email').attr('rel'));
+    $j("#current_password").attr('value','');
+    $j("#password").attr('value','');
+    $j("#confirmation").attr('value','');
+}
+function showEmail(){
+    $j('.email').hide();
+    $j('.validate-email').show();
+
+
+}
+</script>
+
+<div class='clear'></div>
+
+    <?php  //echo $this->getChildHtml('info') ?>
+
+<div class='clear'></div>
+
+    <?php /* echo $this->getChildHtml('top') ?>
+    <div class="box-account box-info">
+        <div class="box-head">
+            <h2><?php echo $this->__('Account Information') ?></h2>
+        </div>
+        <?php echo $this->getChildHtml('info') ?>
+        <?php echo $this->getChildHtml('address') ?>
+    </div>
+    <?php echo $this->getChildHtml('info1') ?>
+    <?php echo $this->getChildHtml('info2') ?>
+    <?php/*  */?>
+</div>
+<div class='clear'></div>
+</div>
+<div class='clear'></div>

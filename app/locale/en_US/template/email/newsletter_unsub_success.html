@@ -1,0 +1,60 @@
+<!--@subject Newsletter unsubscription success @-->
+<!--@subject Newsletter subscription success @-->
+<!--@subject Welcome, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var customer.email":"Customer Email",
+"htmlescape var=$customer.password":"Customer Password"}
+@-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+        <tr>
+            <td align="center" valign="top" style="padding:20px 0 20px 0" >
+                <!-- [ header starts here] -->
+                <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <tr>
+                        <td width="95" valign="top" bgcolor="000000">
+                            <a href="{{store url=""}}"><img src="http://mymoviedeals.com/emails/images/logo.png" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+                        <td width="395" bgcolor="000000" style="color: #fff; font-weight: normal;"></td>
+                        <td width="98" align="right" valign="top" bgcolor="000000"><a href="http://twitter.com/mymoviedeals" target="_blank"><img src="http://mymoviedeals.com/emails/images/twi.png" alt="twitter" width="24" height="23" border="0"></a> <a href="http://www.facebook.com/moviedeals" target="_blank"><img src="http://mymoviedeals.com/emails/images/fb.png" alt="facebook" width="24" height="23" border="0"></a></td>
+                    </tr>
+                    <tr>
+                    	<td height="30" colspan="3" bgcolor="6db7d1" style="color:#ffffff; font-size:12px; text-align:right; padding: 0 20px"></td>
+                    </tr>
+                <!-- [ middle starts here] -->
+                    <tr>
+                      <td colspan="3" valign="top">
+                            <h3>You are unsubscribed from My Movie Deals Newsletter.</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="left"><a href="#" target="_blank"><img src="http://mymoviedeals.com/emails/images/special_offers.png" width="200" height="130" border="0"></a></td>
+                          <td align="center"><a href="#" target="_blank"><img src="http://mymoviedeals.com/emails/images/weekly_challenges.png" width="200" height="135" border="0"></a></td>
+                          <td align="right"><a href="#" target="_blank"><img src="http://mymoviedeals.com/emails/images/discount_movie_tickets.png" width="200" height="129" border="0"></a></td>
+                        </tr>
+                      </table>
+                      </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="3"><strong style="font-size: 14px; color: #999;">Start looking for deals...</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center" bgcolor="6db7d1" style="text-align:center; color: #fff;"><center><p style="font-size:12px; margin:0;"><a style="color: #fff; text-decoration: none;" href="#">All Deals</a> | <a style="color: #fff; text-decoration: none;" href="#">Featured Deals</a> | <a style="color: #fff; text-decoration: none;" href="#">Free Deals</a> | <a style="color: #fff; text-decoration: none;" href="#">Movie Deals</a> | <a style="color: #fff; text-decoration: none;" href="#">Restaurant Deals</a> | <a style="color: #fff; text-decoration: none;" href="#">Package Deals</a></p></center></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>

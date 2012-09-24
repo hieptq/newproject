@@ -1,0 +1,111 @@
+<?php
+/*
+ * Contus Support Pvt Ltd.
+ * created by Vasanth on nov 02 2010.
+ * vasanth@contus.in
+ * In this page used to upload video in admin side.
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <title>Magento Admin</title>
+    <script type="text/javascript">
+       function changeMerchant(str)
+       {
+        var xmlhttp;
+        if (str=="")
+        {
+            return;
+        }
+        document.getElementById('colorContent').style.display = "block";
+        document.getElementById('colorContent').innerHTML = '<img src="<?php echo str_replace("index.php/", "", $this->getBaseUrl()) ?>skin/adminhtml/default/default/images/ajax-loader-tr.gif" alt="<?php echo $this->__('Loading...') ?>"/>';
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                document.getElementById("content_ajax").innerHTML=xmlhttp.responseText;
+                document.getElementById('colorContent').style.display = "none";
+                return;
+            }
+        }
+        xmlhttp.open("POST","<?php echo Mage::getBaseUrl();?>vouchercode/index/dealname",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send("id="+str);
+    }
+        </script>
+         </head>
+   <body>
+       <div class="entry-edit">
+            <div class="entry-edit-head">
+                <h4 class="icon-head head-edit-form fieldset-legend">Item information</h4>
+                <div class="form-buttons"></div>
+            </div>
+            <div class="fieldset " id="videoupload_form">
+                <?php
+                /* If video edit. */
+                $voucherData = array();
+                $voucherData = $this->edit();
+                ?>
+                <div class="hor-scroll">
+                    <table cellspacing="0" class="form-list">
+                        <tbody>
+                             <tr>
+                                <td class="label" style="height: 35px !important;"><label for="maximum_stock">Maximum Voucher Code Stock<span class="required">*</span></label></td>
+                                <td class="value">
+                                   <input id="title" name="title" value="<?php if ($voucherData != '') { echo($voucherData->gettitle()); } ?>" type="text" class="input-text required-entry" />
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="label" style="height: 35px !important;"><label for="merchant_name">Merchant Name<span class="required">*</span></label></td>
+                                <td class="value">
+                                   <select id="content" name="content" class="required-entry required-entry select" onchange="changeMerchant(this.value)">
+                                        <option value=''>Select Merchant Name</option>
+                                        <?php
+                                        $merchantName = Mage::getModel('vouchercode/vouchercode')->getMerchantname();
+                                        foreach($merchantName as $_merchantName) {
+                                           $merfirstName = $_merchantName['firstname'];
+                                           $merlastName = $_merchantName['lastname'];
+                                           $merName = $merfirstName.''.$merlastName;
+                                           $merEmail = $_merchantName['email'];
+                                           $merId = $_merchantName['user_id'];
+                                        ?>
+                                        <option value="<?php echo $merId; ?>"<?php
+                                                        if ($voucherData != '') {
+                                                            echo($merId == $voucherData->getcontent()) ? 'selected' : '';
+                                                        } ?>><?php echo $merName.' -- '.$merEmail; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                               <td class="value" id="colorContent">
+                               </td>
+                            </tr>
+                            <tr>
+                                <td class="label" style="height: 35px !important;"><label for="deal_name">Deal Name<span class="required">*</span></label></td>
+                                <td class="value" id="content_ajax">
+                                    <select id="status" name="status" class="required-entry required-entry select">
+                                        <option value=''>Select</option>
+                                       </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label" style="height: 35px !important;"><label for="filename">Upload Voucher Code<span class="required">*</span></label></td>
+                                <td class="value">
+                                     <input id="filename" name="filename" value="" type="file" class="required" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+       </div>
+       </body>
+                                            </html>

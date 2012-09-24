@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <vouchercode_index_index>
+        <reference name="content">
+            <block type="vouchercode/vouchercode" name="vouchercode" template="vouchercode/vouchercode.phtml" />
+        </reference>
+    </vouchercode_index_index>
+</layout> 

@@ -1,0 +1,225 @@
+[11-May-2012 05:23:15] PHP Fatal error:  Call to a member function getTypeInstance() on a non-object in /home/mpkdeals/public_html/app/code/local/Mage/Catalog/Block/Product/View.php on line 172
+[14-May-2012 04:30:11] Unknown algorithm. Expected HMAC-SHA256
+[15-May-2012 06:18:50] Unknown algorithm. Expected HMAC-SHA256
+[01-Aug-2012 19:52:16] PHP Warning:  Unterminated comment starting line 134 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 134
+[01-Aug-2012 19:52:16] PHP Fatal error:  fatal flex scanner internal error--end of buffer missed in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 134
+[01-Aug-2012 20:07:59] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:01] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:06] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:07] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:12] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:16] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:20] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 98
+[01-Aug-2012 20:08:36] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 106
+[01-Aug-2012 20:30:05] PHP Warning:  Unterminated comment starting line 150 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 150
+[01-Aug-2012 20:30:05] PHP Fatal error:  fatal flex scanner internal error--end of buffer missed in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 150
+[01-Aug-2012 20:30:34] PHP Warning:  Unterminated comment starting line 150 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 150
+[01-Aug-2012 20:30:34] PHP Fatal error:  fatal flex scanner internal error--end of buffer missed in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 150
+[01-Aug-2012 21:31:27] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 561
+[01-Aug-2012 21:32:23] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 561
+[01-Aug-2012 21:32:37] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 567
+[01-Aug-2012 21:32:47] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 567
+[01-Aug-2012 21:33:27] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 557
+[01-Aug-2012 21:34:04] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 203
+[01-Aug-2012 21:34:38] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 165
+[02-Aug-2012 19:38:18] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/footer.phtml on line 176
+[02-Aug-2012 19:38:24] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/footer.phtml on line 176
+[04-Aug-2012 10:45:29] PHP Fatal error:  Call to a member function getPageContent() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/2columns-left.phtml on line 51
+[04-Aug-2012 11:07:07] PHP Fatal error:  Call to a member function getTypeInstance() on a non-object in /home/mpkdeals/public_html/app/code/local/Mage/Catalog/Block/Product/View.php on line 172
+[04-Aug-2012 13:24:21] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 129
+[04-Aug-2012 13:24:39] PHP Warning:  Unterminated comment starting line 175 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 175
+[04-Aug-2012 13:24:39] PHP Fatal error:  fatal flex scanner internal error--end of buffer missed in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 175
+[04-Aug-2012 13:24:45] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 300
+[04-Aug-2012 13:25:02] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 300
+[04-Aug-2012 13:25:13] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 300
+[04-Aug-2012 13:25:25] PHP Fatal error:  Call to a member function getIsActive() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 117
+[04-Aug-2012 13:29:31] PHP Fatal error:  Call to a member function getCategoryUrl() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 117
+[04-Aug-2012 14:25:33] PHP Parse error:  syntax error, unexpected T_ENDFOREACH in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 209
+[05-Aug-2012 11:20:45] PHP Fatal error:  Call to a member function getName() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 152
+[05-Aug-2012 11:21:26] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 151
+[05-Aug-2012 11:34:24] PHP Fatal error:  Call to a member function getCategory() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 151
+[05-Aug-2012 11:35:05] PHP Fatal error:  Call to a member function getspecial_to_date() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 168
+[06-Aug-2012 21:34:25] PHP Fatal error:  Call to a member function setEmailValue() on a non-object in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AccountController.php on line 510
+[06-Aug-2012 21:36:43] PHP Fatal error:  Call to a member function setEmailValue() on a non-object in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AccountController.php on line 510
+[07-Aug-2012 20:04:44] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 102
+[07-Aug-2012 20:04:54] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 102
+[07-Aug-2012 20:05:02] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 52
+[07-Aug-2012 20:05:12] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 48
+[07-Aug-2012 20:05:43] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 102
+[07-Aug-2012 20:06:08] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 103
+[07-Aug-2012 20:06:29] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 249
+[07-Aug-2012 20:20:41] PHP Fatal error:  Call to a member function getFile() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 140
+[07-Aug-2012 20:21:02] PHP Fatal error:  Call to a member function getFile() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 140
+[07-Aug-2012 20:21:08] PHP Fatal error:  Call to a member function getFile() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 140
+[07-Aug-2012 20:21:23] PHP Fatal error:  Call to a member function getFile() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 140
+[07-Aug-2012 20:21:45] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 142
+[07-Aug-2012 20:21:48] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 142
+[07-Aug-2012 20:51:36] PHP Fatal error:  Call to undefined function  gettargetnumber() in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 209
+[12-Aug-2012 06:05:09] PHP Fatal error:  Call to undefined method Moviedeal_General_IndexController::_getSession() in /home/mpkdeals/public_html/app/code/local/Moviedeal/General/controllers/IndexController.php on line 6
+[12-Aug-2012 06:32:20] PHP Fatal error:  Call to undefined method Moviedeal_General_IndexController::_welcomeCustomer() in /home/mpkdeals/public_html/app/code/local/Moviedeal/General/controllers/IndexController.php on line 83
+[13-Aug-2012 15:00:35] PHP Fatal error:  Call to undefined function  delete() in /home/mpkdeals/public_html/app/code/community/Uni/Fileuploader/controllers/DownloadController.php on line 129
+[13-Aug-2012 15:03:06] PHP Fatal error:  Call to a member function getProductAttachments() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 325
+[13-Aug-2012 18:27:17] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 68
+[13-Aug-2012 18:27:17] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 68
+[13-Aug-2012 19:56:35] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart/sidebar_accout.phtml on line 64
+[13-Aug-2012 20:53:02] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 162
+[13-Aug-2012 20:57:11] PHP Fatal error:  Cannot use string offset as an array in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/form/newsletter.phtml on line 95
+[13-Aug-2012 20:57:28] PHP Fatal error:  Cannot use string offset as an array in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/form/newsletter.phtml on line 92
+[13-Aug-2012 20:57:57] PHP Fatal error:  Cannot use string offset as an array in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/form/newsletter.phtml on line 91
+[13-Aug-2012 21:15:10] PHP Parse error:  syntax error, unexpected ')' in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 145
+[13-Aug-2012 21:15:21] PHP Parse error:  syntax error, unexpected ')' in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 162
+[13-Aug-2012 21:18:15] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 160
+[13-Aug-2012 21:18:21] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 160
+[13-Aug-2012 21:21:41] PHP Fatal error:  Call to undefined method Mage_Customer_AddressController::getUrl() in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 145
+[13-Aug-2012 21:21:43] PHP Fatal error:  Call to undefined method Mage_Customer_AddressController::getUrl() in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 145
+[13-Aug-2012 21:22:23] PHP Parse error:  syntax error, unexpected ')' in /home/mpkdeals/public_html/app/code/core/Mage/Customer/controllers/AddressController.php on line 147
+[13-Aug-2012 21:28:01] PHP Parse error:  syntax error, unexpected $end, expecting ',' or ';' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/sales/order/history.phtml on line 190
+[14-Aug-2012 03:11:41] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[14-Aug-2012 03:11:50] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[14-Aug-2012 03:11:59] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[14-Aug-2012 03:12:25] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[14-Aug-2012 18:07:33] PHP Fatal error:  Call to undefined method DevelopersIndia_AjaxAddToCart_CartController::helper() in /home/mpkdeals/public_html/app/code/local/DevelopersIndia/AjaxAddToCart/controllers/CartController.php on line 91
+[14-Aug-2012 18:08:26] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/code/core/Mage/Catalog/Helper/Image.php on line 83
+[14-Aug-2012 18:09:46] PHP Parse error:  syntax error, unexpected T_ECHO in /home/mpkdeals/public_html/app/code/local/DevelopersIndia/AjaxAddToCart/controllers/CartController.php on line 92
+[15-Aug-2012 20:31:54] PHP Fatal error:  Call to a member function getorderto() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart.phtml on line 140
+[15-Aug-2012 20:32:31] PHP Fatal error:  Call to a member function getorderto() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart.phtml on line 143
+[15-Aug-2012 20:32:43] PHP Fatal error:  Call to a member function getorderto() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart.phtml on line 143
+[15-Aug-2012 20:32:48] PHP Fatal error:  Call to a member function getorderto() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart.phtml on line 143
+[15-Aug-2012 20:32:55] PHP Fatal error:  Call to a member function getorderto() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/checkout/cart.phtml on line 143
+[16-Aug-2012 07:22:34] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 316
+[16-Aug-2012 07:22:47] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 316
+[16-Aug-2012 07:22:53] PHP Parse error:  syntax error, unexpected T_ENDFOREACH in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/page/html/header.phtml on line 188
+[16-Aug-2012 09:53:36] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting T_STRING or T_VARIABLE or '{' or '$' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 221
+[16-Aug-2012 09:54:00] PHP Parse error:  syntax error, unexpected T_LNUMBER, expecting T_STRING or T_VARIABLE or '{' or '$' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 221
+[16-Aug-2012 12:57:52] Unknown algorithm. Expected HMAC-SHA256
+[16-Aug-2012 16:14:23] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[16-Aug-2012 16:14:25] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[16-Aug-2012 16:37:56] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[16-Aug-2012 16:38:29] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[16-Aug-2012 16:42:11] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[16-Aug-2012 17:25:54] PHP Fatal error:  Call to a member function resize() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 385
+[16-Aug-2012 22:16:44] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment/methods.phtml on line 22
+[16-Aug-2012 22:17:22] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment/methods.phtml on line 21
+[16-Aug-2012 22:17:39] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment/methods.phtml on line 21
+[16-Aug-2012 22:18:03] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment/methods.phtml on line 23
+[16-Aug-2012 22:18:31] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment/methods.phtml on line 23
+[16-Aug-2012 22:18:34] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment.phtml on line 16
+[16-Aug-2012 22:19:07] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/payment.phtml on line 16
+[16-Aug-2012 22:19:48] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/onestepcheckout/onestep/review.phtml on line 145
+[17-Aug-2012 20:46:30] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 73
+[17-Aug-2012 20:48:50] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 73
+[17-Aug-2012 20:59:36] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 531
+[17-Aug-2012 20:59:36] PHP Parse error:  syntax error, unexpected '&' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 531
+[17-Aug-2012 20:59:41] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 531
+[17-Aug-2012 20:59:41] PHP Parse error:  syntax error, unexpected '&' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 531
+[17-Aug-2012 21:38:54] PHP Parse error:  syntax error, unexpected $end in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 176
+[17-Aug-2012 15:19:14] PHP Fatal error:  Call to a member function getAttributes() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 225
+[17-Aug-2012 15:19:21] PHP Fatal error:  Call to a member function getAttributes() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 225
+[17-Aug-2012 23:18:03] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[17-Aug-2012 23:18:10] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[17-Aug-2012 23:18:13] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/customer/account/dashboard.phtml on line 81
+[20-Aug-2012 18:51:52] PHP Parse error:  syntax error, unexpected '>' in /home/mpkdeals/public_html/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 145
+[29-Aug-2012 19:39:52] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/mpkdeals/public_html/app/code/local/Contus/Merchant/Model/Merchant.php on line 56
+[29-Aug-2012 19:39:55] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/mpkdeals/public_html/app/code/local/Contus/Merchant/Model/Merchant.php on line 56
+[29-Aug-2012 19:40:16] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/app/code/local/Contus/Merchant/Model/Merchant.php on line 57
+[07-Sep-2012 12:42:05] PHP Fatal error:  Call to a member function getstatus() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 105
+[07-Sep-2012 12:44:57] PHP Fatal error:  Call to a member function getStatus() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 105
+[08-Sep-2012 11:33:43] PHP Parse error:  syntax error, unexpected T_CATCH in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 77
+[08-Sep-2012 11:34:33] PHP Parse error:  syntax error, unexpected T_CATCH in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 77
+[08-Sep-2012 11:37:47] PHP Parse error:  syntax error, unexpected T_CATCH in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 77
+[08-Sep-2012 15:41:40] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/mpkdeals/public_html/test/app/Mage.php on line 574
+[08-Sep-2012 15:55:36] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/mpkdeals/public_html/test/app/Mage.php on line 574
+[08-Sep-2012 16:10:05] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/mpkdeals/public_html/test/app/Mage.php on line 574
+[08-Sep-2012 12:29:54] PHP Warning:  fopen(test1.php) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: No such file or directory in /home/mpkdeals/public_html/test/test.php on line 2
+[09-Sep-2012 14:08:17] PHP Fatal error:  Uncaught exception 'Mage_Core_Exception' with message 'Invalid transactional email code: ' in /home/mpkdeals/public_html/test/app/Mage.php:549
+Stack trace:
+#0 /home/mpkdeals/public_html/test/app/code/core/Mage/Core/Model/Email/Template.php(447): Mage::exception('Mage_Core', 'Invalid transac...')
+#1 /home/mpkdeals/public_html/test/app/code/local/Gclone/Dealcoupon/Model/Dealcoupon.php(294): Mage_Core_Model_Email_Template->sendTransactional(NULL, NULL, 'ranipriyanka@co...', 'rani priyanka', Array)
+#2 /home/mpkdeals/public_html/test/cron.php(40): Gclone_Dealcoupon_Model_Dealcoupon->sendCoupon()
+#3 {main}
+  thrown in /home/mpkdeals/public_html/test/app/Mage.php on line 549
+[09-Sep-2012 14:15:22] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 561
+[09-Sep-2012 14:26:36] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 497
+[09-Sep-2012 14:44:00] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 562
+[09-Sep-2012 15:13:21] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 562
+[09-Sep-2012 15:57:23] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 561
+[09-Sep-2012 15:58:00] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 561
+[09-Sep-2012 15:58:23] PHP Parse error:  syntax error, unexpected ';' in /home/mpkdeals/public_html/test/app/code/local/Gclone/Deal/controllers/Catalog/ProductController.php on line 561
+[10-Sep-2012 04:13:51] PHP Parse error:  syntax error, unexpected '=' in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 16
+[10-Sep-2012 04:14:30] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 37
+[10-Sep-2012 04:15:27] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 38
+[10-Sep-2012 04:16:05] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 40
+[10-Sep-2012 04:17:54] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 39
+[10-Sep-2012 04:18:47] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 40
+[10-Sep-2012 04:19:43] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 38
+[10-Sep-2012 04:20:24] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 40
+[10-Sep-2012 04:22:14] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 42
+[10-Sep-2012 04:22:48] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/IndexController.php on line 34
+[10-Sep-2012 05:43:23] PHP Fatal error:  Call to a member function setSaveParametersInSession() on a non-object in /home/mpkdeals/public_html/test/app/code/core/Mage/Adminhtml/Block/Widget/Grid/Container.php on line 66
+[10-Sep-2012 08:02:22] PHP Fatal error:  Maximum execution time of 1200 seconds exceeded in /home/mpkdeals/public_html/test/app/Mage.php on line 574
+[10-Sep-2012 09:17:48] PHP Fatal error:  Call to a member function query() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 75
+[10-Sep-2012 09:17:53] PHP Fatal error:  Call to a member function query() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 75
+[10-Sep-2012 09:19:10] PHP Fatal error:  Call to a member function query() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 75
+[10-Sep-2012 09:33:29] PHP Fatal error:  Call to a member function query() on a non-object in /home/mpkdeals/public_html/test/app/code/local/Gclone/Vouchercode/controllers/Adminhtml/VouchercodeController.php on line 76
+[10-Sep-2012 13:22:20] PHP Fatal error:  Call to a member function getConnection() on a non-object in /home/mpkdeals/public_html/test/app/design/frontend/default/blue_theme/template/deal/deal.phtml on line 135
+[10-Sep-2012 13:27:16] PHP Parse error:  syntax error, unexpected '<' in /home/mpkdeals/public_html/test/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 207
+[10-Sep-2012 13:28:16] PHP Fatal error:  Call to a member function getConnection() on a non-object in /home/mpkdeals/public_html/test/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 201
+[10-Sep-2012 13:28:41] PHP Fatal error:  Call to a member function getConnection() on a non-object in /home/mpkdeals/public_html/test/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 201
+[10-Sep-2012 13:32:51] PHP Parse error:  syntax error, unexpected T_ELSE in /home/mpkdeals/public_html/test/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 211
+[12-Sep-2012 08:08:00] PHP Parse error:  syntax error, unexpected ':' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 377
+[12-Sep-2012 08:08:17] PHP Parse error:  syntax error, unexpected ':' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 377
+[12-Sep-2012 08:08:19] PHP Fatal error:  Call to undefined function  lightboxaction() in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 381
+[12-Sep-2012 08:08:29] PHP Fatal error:  Call to undefined function  lightboxaction() in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 381
+[12-Sep-2012 11:38:24] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 302
+[12-Sep-2012 12:07:07] PHP Fatal error:  Class 'Mage__Helper_Data' not found in /home/mpkdeals/public_html/staging/app/Mage.php on line 516
+[12-Sep-2012 12:07:54] PHP Fatal error:  Class 'Mage__Helper_Data' not found in /home/mpkdeals/public_html/staging/app/Mage.php on line 516
+[13-Sep-2012 05:24:31] PHP Parse error:  syntax error, unexpected '}' in /home/mpkdeals/public_html/staging/app/design/adminhtml/default/default/template/catalog/form/renderer/fieldset/element.phtml on line 88
+[13-Sep-2012 05:25:17] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/adminhtml/default/default/template/catalog/form/renderer/fieldset/element.phtml on line 88
+[13-Sep-2012 05:25:46] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/adminhtml/default/default/template/catalog/form/renderer/fieldset/element.phtml on line 88
+[13-Sep-2012 05:26:02] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/adminhtml/default/default/template/catalog/form/renderer/fieldset/element.phtml on line 88
+[13-Sep-2012 05:26:26] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/adminhtml/default/default/template/catalog/form/renderer/fieldset/element.phtml on line 88
+[13-Sep-2012 14:21:44] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/form/register.phtml on line 119
+[13-Sep-2012 14:22:01] PHP Parse error:  syntax error, unexpected T_STRING in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/form/register.phtml on line 119
+[13-Sep-2012 20:27:33] PHP Parse error:  syntax error, unexpected T_ELSE in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 311
+[14-Sep-2012 09:23:06] PHP Fatal error:  Call to a member function getdeallocation() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 09:24:08] PHP Fatal error:  Call to a member function getdeallocation() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 09:26:38] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 09:46:28] PHP Fatal error:  Call to a member function load() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:46:55] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:47:22] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:47:58] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:48:03] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:48:06] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/catalog/product/list.phtml on line 201
+[14-Sep-2012 09:51:40] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 09:52:12] PHP Fatal error:  Call to a member function getCategoryIds() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 154
+[14-Sep-2012 09:58:39] PHP Fatal error:  Call to a member function getResource() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 10:00:06] PHP Fatal error:  Call to a member function getData() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 158
+[14-Sep-2012 10:04:30] PHP Fatal error:  Call to a member function getAttributeText() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 156
+[14-Sep-2012 10:09:58] PHP Fatal error:  Call to a member function getProductCollection() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 156
+[14-Sep-2012 10:10:33] PHP Fatal error:  Call to a member function getProductCollection() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 156
+[14-Sep-2012 10:13:13] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 152
+[14-Sep-2012 10:17:17] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 155
+[14-Sep-2012 10:17:37] PHP Fatal error:  Call to a member function getId() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deals.phtml on line 155
+[18-Sep-2012 12:02:47] PHP Fatal error:  Class 'Mage_Facebookfree_Helper_Active' not found in /home/mpkdeals/public_html/staging/app/Mage.php on line 516
+[19-Sep-2012 08:46:30] PHP Parse error:  syntax error, unexpected T_BREAK, expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 424
+[19-Sep-2012 08:50:38] PHP Parse error:  syntax error, unexpected '.' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 08:56:28] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 08:56:46] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 08:57:03] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 08:58:15] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 08:59:55] PHP Parse error:  syntax error, unexpected '<' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 423
+[19-Sep-2012 09:51:54] PHP Fatal error:  Call to a member function getFirstname() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/widget/name.phtml on line 69
+[19-Sep-2012 09:52:40] PHP Fatal error:  Call to a member function getFirstname() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/widget/name.phtml on line 69
+[19-Sep-2012 09:54:50] PHP Fatal error:  Call to a member function getFirstname() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/widget/name.phtml on line 69
+[19-Sep-2012 09:55:29] PHP Fatal error:  Call to a member function getFirstname() on a non-object in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/customer/widget/name.phtml on line 69
+[19-Sep-2012 17:46:13] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/mpkdeals/public_html/staging/app/code/local/Moviedeal/General/controllers/IndexController.php on line 43
+[21-Sep-2012 06:52:41] PHP Fatal error:  Call to a member function getTypeInstance() on a non-object in /home/mpkdeals/public_html/staging/app/code/local/Mage/Catalog/Block/Product/View.php on line 172
+[21-Sep-2012 09:53:46] PHP Parse error:  syntax error, unexpected '<' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 459
+[21-Sep-2012 09:54:19] PHP Parse error:  syntax error, unexpected T_ECHO in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 459
+[21-Sep-2012 09:55:40] PHP Fatal error:  Class 'Mage__Helper_Data' not found in /home/mpkdeals/public_html/staging/app/Mage.php on line 516
+[21-Sep-2012 09:56:05] PHP Fatal error:  Class 'Mage__Helper_Data' not found in /home/mpkdeals/public_html/staging/app/Mage.php on line 516
+[21-Sep-2012 10:00:55] PHP Parse error:  syntax error, unexpected '?' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 457
+[21-Sep-2012 10:01:47] PHP Parse error:  syntax error, unexpected '?' in /home/mpkdeals/public_html/staging/app/design/frontend/default/mymoviedeal/template/deal/deal.phtml on line 457
+[21-Sep-2012 14:51:05] PHP Fatal error:  Call to a member function addError() on a non-object in /home/mpkdeals/public_html/staging/app/code/local/Moviedeal/General/controllers/IndexController.php on line 98
+[21-Sep-2012 14:51:11] PHP Fatal error:  Call to a member function addError() on a non-object in /home/mpkdeals/public_html/staging/app/code/local/Moviedeal/General/controllers/IndexController.php on line 98
+[22-Sep-2012 20:49:41] PHP Fatal error:  Call to a member function getTypeInstance() on a non-object in /home/mmde415/public_html/app/code/local/Mage/Catalog/Block/Product/View.php on line 172

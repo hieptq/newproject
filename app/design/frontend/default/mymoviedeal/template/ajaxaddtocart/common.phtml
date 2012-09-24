@@ -1,0 +1,72 @@
+<?php 
+if(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/active")){
+
+	// echo "<pre>";
+	// print_r($this->getRequest());
+	// echo "</pre>";
+	if(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/processing_image")){
+		$processing_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."di/ajaxaddtocart/images/".Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/processing_image");
+	}else{
+		// $processing_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."/adminhtml/default/default/images/ajax-loader-tr.gif";
+		$processing_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."di/ajaxaddtocart/default_processing.gif";
+	}
+	
+	// button bg colors, border colors and font colors
+	$button_bg_color = (Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_bg_color"))?(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_bg_color")):"#F18200";
+	
+	$button_border_color = (Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_border_color"))?(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_border_color")):"#DE5400";
+	
+	$button_font_color = (Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_font_color"))?(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/button_font_color")):"#FFFFFF";	
+?>
+
+<?php $request_uri = $this->getRequest()->getRequestUri(); ?>
+<?php $checkout_url = Mage::helper('checkout/cart')->getCartUrl(); ?>
+<?php $update_tolink_url = Mage::helper('checkout/cart')->getCartUrl()."getUpdatedTopCartLink/"; ?>
+<?php $home_url = Mage::getBaseUrl(); ?>
+<?php 
+	$ok_button_label = Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/go_to_cart_text");
+	$cancel_button_label = Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/continue_shopping_text");
+	$delete_confirm_text = (Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/delete_confirm_text"))?(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/delete_confirm_text")):"Are you sure?";
+	$enable_success_message = Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/enable_success_message");
+?>
+
+<?php
+if(Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/processing_bg_image_path")){
+	$processing_bg_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."di/ajaxaddtocart/images/".Mage::getStoreConfig("ajaxaddtocart/ajaxaddtocart_settings/processing_bg_image_path");
+}else{
+	$processing_bg_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."di/ajaxaddtocart/images/default_processing_bg_image_path.gif";
+}
+
+$default_bg_image = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."di/ajaxaddtocart/default_bg.png";
+?>
+
+<div id="di_ajax_add_to_cart_main_div" style="display:none; background:url(<?php echo $default_bg_image ?>) repeat scroll 0 0 transparent; opacity:0.7; width:50000px; height:100%; top: 0pt; z-index: 100; position: fixed; margin-left:-8000px;"></div>
+<!--<div id="di_ajax_add_to_cart_main_div_container" style="display:none; width:100%; height:100%; top: 0pt; z-index: 100; position: fixed;">-->
+	<div style="display: none;color:#D85909;font-size:1.1em;font-weight:bold;position:fixed; _position:absolute; text-align:center;z-index:500; top:40%; width:120px;" id="loading-mask">
+		<p id="loading_mask_loader" class="loader" style="color:#D85909; font-weight:bold; left:50%; margin-left:-250px; padding:15px 60px; position:fixed; text-align:center; top:45%; width:120px; z-index:1000;">
+			<img alt="Loading..." src="<?php echo $processing_image_path; ?>" />
+		</p>
+	</div>
+
+	<div style="display: none; color:#D85909; font-size:1.1em; position:fixed; _position:absolute; text-align:center; z-index:500; top:40%; width:300px;" id="after-loading-success-message">
+		<p id="success-message-container" class="loader" style="color:#D85909; position:fixed; text-align:center; width:300px; z-index:1000; background:#FFFFFF none repeat scroll 0 0;">	
+		</p>
+	</div>
+
+	<div style="display: none; font-size:1.1em; position:fixed; _position:absolute; text-align:left;z-index:500; background-color:#fff; top:0%; padding:10px; max-height:100%; overflow:auto; width:520px;" id="product_type_data_container"></div>
+	<!--<div id="product_type_data_temp_container" style="display:none;"></div>-->
+<!--</div>-->
+	
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)."developersindia.info/ajax-addtocart.js";?>"></script>
+
+<script type='text/javascript'>
+	setAllTheUrls('<?php echo $request_uri; ?>', '<?php echo $checkout_url; ?>', '<?php echo $update_tolink_url; ?>', '<?php echo $home_url; ?>', '<?php echo $ok_button_label; ?>', '<?php echo $cancel_button_label;?>', '<?php echo $delete_confirm_text;?>', '<?php echo $enable_success_message;?>', '<?php echo $button_bg_color;?>', '<?php echo $button_border_color;?>', '<?php echo $button_font_color;?>');
+	
+	Event.observe(window, 'load', function() {
+	  findAndCleanUpDeleteUrls();
+	});
+
+</script>
+<?php
+}
+?>

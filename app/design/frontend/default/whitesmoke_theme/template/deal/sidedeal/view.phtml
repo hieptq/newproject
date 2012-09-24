@@ -1,0 +1,182 @@
+<!--
+Created by Contussupport
+www.contussupport.com
+-->
+<!-- Today's side deal -->
+
+<script type="text/javascript">
+    //var eff = jQuery.noConflict();
+    $j(function(){
+        $j('#loopedslider').loopedSlider({
+            autoHeight: false,
+            containerClick: false,
+            autoStart:4000,
+            restart: 4000,
+            slidespeed: 1000
+        });
+    });
+</script>
+<?php
+
+/* Condition for displaying the sidedeal in the main deal page */
+$id = Mage::app()->getRequest()->getParam('id');
+$cities = array();
+$desc = '';
+$baseUrl = Mage::getBaseUrl();
+$dealsCity = Mage::getSingleton('core/session')->getCity();
+//getting the current city
+$Totalcities = Mage::getSingleton('core/session')->getTotalCities();
+$dealsCityName = $Totalcities[$dealsCity];
+    $productIds = Mage::getSingleton('core/session')->getProductIds();
+    //$products = Mage::getModel('deal/deal')->getDealCollections($catId, $dealsCity);
+     $todayDate = date('m/d/y');
+	$tomorrow = mktime(0, 0, 0, date('m'), date('d')+1, date('y'));
+	$tomorrowDate = date('m/d/y', $tomorrow);
+    $_productCollection = Mage::getModel('catalog/product')->getCollection();
+    $_productCollection->addAttributeToFilter('special_to_date', array('or'=> array(
+   	0 => array('date' => true, 'from' => $tomorrowDate),
+    1 => array('is' => new Zend_Db_Expr('null')))
+    ), 'left');
+    $_productCollection->addAttributeToFilter('dealcity', array('finset' => $dealsCity));
+    $products = Mage::getModel('catalog/product'); //getting product model
+    $currentTime = Mage_Core_Model_Locale::date(null, null, "en_US", true);
+
+/* Todays Other Deal */
+
+     $count = 0;
+     $productCount = 0;
+     $isSlide = Mage::getStoreConfig('deal/sidedeal/enable_slide');
+    foreach ($_productCollection as $_product) {
+        $_product = $products->load($_product->getId());
+        $productId = $_product->getId();
+        $startTime = $_product->getstarttime();
+        if ($productId != $id) {
+            $city = $_product->getAttributeText('dealcity');
+            $startTime = $_product->getstarttime();
+            $ProductToDate = $_product->getResource()->formatDate($_product->getspecial_to_date(), false);
+            $ToDate = strtotime($ProductToDate);
+            $ProductFromDate = $_product->getResource()->formatDate($_product->getspecial_from_date(), false);
+            $Fromtime = strtotime($ProductFromDate . ' ' . $startTime);
+            if ($Fromtime < strtotime($currentTime)) {
+                if (strtotime(date("Y-m-d", $ToDate) . ' ' . $_product->getTime()) >= strtotime($currentTime) && $productId!=$productIds[0]) {
+                    $productCount = $productCount + 1;
+                    $title = $this->__('Other Deals');
+                    }
+                }
+            }
+        }
+        if ($productCount > 0) {
+    if ($isSlide != 0 && $productCount != 1) {
+        ?>
+                <div class="block block-cart" id="other-deal">
+            <div class="block-title"><strong><?php echo $this->__($title); ?></strong></div>
+            <div class="block-content">
+                <div class="midpix">
+                <div class="infiniteCarousel" id="loopedslider">
+                    <!-- Start of Slick Slider for Active Deals -->
+                    <div class="container">
+                        <ul class="slides">
+                        <?php
+                        foreach ($_productCollection as $_product) {
+                        $_product = $products->load($_product->getId());
+                        $productId = $_product->getId();
+
+                        $productStatus = $_product->getStatus();
+                        if ($productId != $id && $productStatus == 1) {
+                                $city = $_product->getAttributeText('dealcity');
+                                $startTime = $_product->getstarttime();
+                                $ProductToDate = $_product->getResource()->formatDate($_product->getspecial_to_date(), false);
+                                $ToDate = strtotime($ProductToDate);
+                                $ProductFromDate = $_product->getResource()->formatDate($_product->getspecial_from_date(), false);
+                                $Fromtime = strtotime($ProductFromDate . ' ' . $startTime);
+                                if ($Fromtime < strtotime($currentTime)) {
+                                    //if($city == $dealsCityName ) {
+                                    if (strtotime(date("Y-m-d", $ToDate) . ' ' . $_product->getTime()) >= strtotime($currentTime) && $productId!=$productIds[0]) {
+                                        $productId = $_product->getId();
+                                        $images = $this->helper('catalog/image')->init($_product, 'image');
+                                         $model = Mage::getModel('catalog/product'); //getting product model
+                                         $_productofferdetails = $model->load($productId);
+                                         $discount_price = $_productofferdetails->getPrice() - $_productofferdetails->getSpecialPrice();
+                                         $discount = ($discount_price * 100) / $_productofferdetails->getPrice();
+                                         $discount = round($discount);
+                                         $desc = $_product->getName();
+                                        //break;
+                                        if ($flag == 1) {
+                                            $title = "Extra Side Deal";
+                                        }
+                                        $flag = 1;
+                                        $URL = $_productofferdetails->getProductUrl();
+
+
+                        ?>
+                                                <li class="midtxt">
+                                                    <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="215" height="140" alt=""/>
+                                                    <span class="offer-bg"><?php echo $discount . "%"; ?> <?php echo $this->__('Off') ?></span></a>
+                                                    <span class="side-deal-content"><a href="<?php echo $URL; ?>"><?php echo $desc; ?></a></span>
+                                                </li>
+                        <?php
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                </ul>
+                 <div class="floatleft slidearrow">
+                    <a href="#" class="previous"><img src="<?php echo $this->getSkinUrl('images/left-arrow.png') ?>"width="15" height="16" alt="previous" /></a>
+                    <h2 style="width:165px; float:left; text-align:center;"><?php //echo $this->__('<< Slide Between Deals >>');     ?></h2>
+                    <a href="#" class="next"><img src="<?php echo $this->getSkinUrl('images/right-arrow.png') ?>"width="15" height="16" alt="left" class="floatright"/></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- End of Slick Slider for Active Deals -->
+                </div>
+        </div>
+
+    </div>
+</div>
+<!-- end of Today's Main deal -->
+
+    <?php
+        } else {
+        foreach ($_productCollection as $_product) {
+        $_product = $products->load($_product->getId());
+        $productId = $_product->getId();
+
+        $productStatus = $_product->getStatus();
+		if ($productId != $id && $productStatus == 1) {
+
+            $city = $_product->getAttributeText('dealcity');
+            $startTime = $_product->getstarttime();
+            $ProductToDate = $_product->getResource()->formatDate($_product->getspecial_to_date(), false);
+            $ToDate = strtotime($ProductToDate);
+            $ProductFromDate = $_product->getResource()->formatDate($_product->getspecial_from_date(), false);
+            $Fromtime = strtotime($ProductFromDate . ' ' . $startTime);
+            if ($Fromtime < strtotime($currentTime)) {
+                if (strtotime(date("Y-m-d", $ToDate) . ' ' . $_product->getTime()) >= strtotime($currentTime) && $productId!=$productIds[0]) {
+                    $productId = $_product->getId();
+                    $images = $this->helper('catalog/image')->init($_product, 'image');
+                    $model = Mage::getModel('catalog/product'); //getting product model
+                    $_productofferdetails = $model->load($productId);
+                    $discount_price = $_productofferdetails->getPrice() - $_productofferdetails->getSpecialPrice();
+                    $discount = ($discount_price * 100) / $_productofferdetails->getPrice();
+                    $discount = round($discount);
+                    $desc = $_product->getName();
+                    $title = $this->__('Other Deals');
+                    $URL = $_productofferdetails->getProductUrl();
+                    if ($count<1) { ?>
+                        <div class="block block-cart clearfix" id="other-deal">
+                        <div class="block-title"><strong>
+                   <?php  echo $this->__($title);?></strong></div> <?php } $count++;?>
+                        <div class="block-content" style="float:left;">
+                        <div class="midtxt">
+                                        <a href="<?php echo $URL; ?>"><img src="<?php echo $images; ?>" width="215" height="140" alt=""/>
+                                        <span class="offer-bg"><?php echo $discount . "%"; ?> <?php echo $this->__('Off') ?></span></a>
+                                        <div class="deal_content"><?php echo $desc; ?></div>
+                                    </div> </div>
+
+                   <?php
+                    }
+                }
+            }
+        }?></div><?php
+}}?>

@@ -1,0 +1,272 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+date_default_timezone_set('America/Los_Angeles');
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+  <script type="text/javascript">
+        <!--
+        var j =1;
+        if (typeof(BackColor)=="undefined")
+            BackColor = "white";
+        if (typeof(ForeColor)=="undefined")
+            ForeColor= "black";
+        if (typeof(DisplayFormat)=="undefined")
+            DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% Days %%M%%:%%S%%</span>";
+        if (typeof(CountActive)=="undefined")
+            CountActive = true;
+        if (typeof(FinishMessage)=="undefined")
+            FinishMessage = "";
+        if (typeof(CountStepper)!="number")
+            CountStepper = -1;
+        if (typeof(LeadingZero)=="undefined")
+            LeadingZero = true;
+        CountStepper = Math.ceil(CountStepper);
+        if (CountStepper == 0)
+            CountActive = false;
+           var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
+        function calcage(secs, num1, num2) {
+           
+            if(secs>259200){
+            if(num1==3600){
+               
+                fullHours=((Math.floor(secs/num1)));//1017
+                days = ((Math.floor(secs/86400)%100000));//42
+                nrHours=fullHours-(24*days);
+                //s=nrHours;
+                s=nrHours.toString();
+                  }
+              else{
+                if(num1==86400){
+                    days = ((Math.floor(secs/num1)%num2));
+                    s = ((Math.floor(secs/num1)));
+                    s1=Math.floor(s/days);
+                   
+                    s=s.toString();
+                }   
+                else
+                s = ((Math.floor(secs/num1)%num2)).toString();
+
+
+            }
+
+                                
+
+                if (LeadingZero && s.length < 2)
+                    s = "0" + s;
+                return  s ;
+
+            }
+            else{
+
+            if(num1==3600){s = ((Math.floor(secs/num1))).toString();}
+            else{s = ((Math.floor(secs/num1)%num2)).toString();}
+            if (LeadingZero && s.length < 2)
+                s = "0" + s;
+            return  s ;
+
+            }
+        }
+        function CountBack(secs,iid,j) {
+            if (secs < 0) {
+                document.getElementById(iid).innerHTML = FinishMessage;
+                var dealimage = "<?php echo $this->getSkinUrl('images/8.png') ?>";
+                var buynowreplace = "<?php echo $this->getSkinUrl('images/deal-closed.png') ?>";
+                document.getElementById('deal_status-'+j).innerHTML ='<img src="'+dealimage+'"  alt="Rate" title="Rate"/><p style="padding-top: 10px;font-family: trebuchet ms;color: white;">Deal closed !</p> ';
+                document.getElementById('scriptbuynow-'+j).innerHTML ='<img src="'+buynowreplace+'"  alt="deal closed" title="deal closed"/>';
+                document.getElementById('scriptbuynow-'+j).setAttribute('href', '#!');
+                document.getElementById('script_gift_box').style.display = "none";
+                document.getElementById('price_value-'+j).innerHTML ='<p style="font-size:33px;"><?php echo $this->__('Closed'); ?></p>';
+                return;
+            }
+
+            if(secs>259200)
+                      DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% Days %%H%%:%%M%%</span>";
+       else
+                DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%H%% hours %%M%%: %%S%%</span>";
+   
+
+
+            DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+            DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600, 0));
+            DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+            DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+            document.getElementById(iid).innerHTML = DisplayStr;
+            if (CountActive)
+                setTimeout(function(){CountBack((secs+CountStepper),iid,j)}, SetTimeOutPeriod);
+        }
+        //-->
+    </script>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <ul class="grid-view" id="products-list">
+    <?php foreach ($_productCollection as $key=>$_product): ?>
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+            <?php // Product Image ?>
+            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(136); ?>" width="136" height="160" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+            <?php // Product description ?>
+            <div class="product-shop">
+                <div class="f-fix">
+                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <?php if($_product->getRatingSummary()): ?>
+                    <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                    <?php endif; ?>
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php if($_product->isSaleable()): ?>
+                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    <div class="desc std">
+                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                    </div>
+                    <ul class="add-to-links">
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+        <ul class="grid-view">
+
+    <?php $i=0; foreach ($_productCollection as $key=>$_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <?php endif ?>
+       <li style='margin-right:16px;'>
+            <?php $categories = $_product->getCategoryIds(); ?>
+
+
+                <div class="list">
+					<h5>
+						<?php $_category = Mage::getModel('catalog/category')->load($categories[1]) ?>
+						<?php echo $_category->getName() ?>
+					</h5>
+                  <div class="top-sec">
+				  <h4><?php echo $productDetails = Mage::getModel('catalog/product')->load($_product->getId())->getData('deal_location'); ?></h4>
+                 
+                    <span class="dura">
+        <?php
+                            //product's regular Price
+                            $todayDate = Mage::getModel('catalog/product')->getResource()->formatDate($_product->getspecial_to_date(), false);
+                            if($_product->gettime())
+                            $expirydate = $todayDate . ' ' . $_product->gettime();
+                        else
+                            $expirydate = $todayDate . Mage::getModel('catalog/product')->load($_product->getId())->getData('time');
+ ;
+
+//var_dump($_product->getData('time'));
+            ?>
+          
+						<div class='viraiterbg'><div id='countbox_<?php echo $key;?>' class='cntdwn' style='width:129px!important'></div></div>
+					</span>
+				</div>
+                <div class="grid-block"> 
+
+                <span class="deal-img"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135,160); ?>" width="135" height="160" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a></span>
+
+                <div class="right-grid">
+					<div class="min-height">
+						<h6><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h6>
+						<span><?php echo $productDetails = Mage::getModel('catalog/product')->load($_product->getId())->getData('companyname'); ?></span>
+					</div>
+					<a href='<?php echo $_product->getProductUrl() ?>' class="btn1 btn4">&gt;&gt; view deal</a>
+                </div>
+
+                </div>
+                </div>
+   
+
+           <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $key; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $key; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $key; ?>)-(dthen<?php echo $key; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $key; ?>)-(dnow<?php echo $key; ?>));
+                            gsecs<?php echo $key; ?> = Math.floor(ddiff.valueOf()/1000);
+                            
+                            var iid<?php echo $key; ?> = "countbox_<?php echo $key; ?>";
+                            CountBack(gsecs<?php echo $key; ?>,iid<?php echo $key; ?>, j);
+                            j++;
+                            
+                            //-->
+                        </script>
+    </li>
+
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+         <?php endif ?>
+
+
+
+
+        <?php endforeach ?>
+     </ul>
+     
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    <?php endif; ?>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>
+</div>

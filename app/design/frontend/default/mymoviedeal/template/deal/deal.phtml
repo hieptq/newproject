@@ -1,0 +1,1138 @@
+<?php
+/**
+ * Contus Support
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@Contus Supportcommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Contus Support to newer
+ * versions in the future. If you wish to customize Contus Support for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_blank
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<link rel="stylesheet" type="text/css" href="http://www.mymoviedeals.com/skin/frontend/default/default/onestepcheckout/onestep.css" media="all" />
+<?php
+$productIds = Mage::getSingleton('core/session')->getProductIds();
+
+$productId=$productIds[0];
+
+?> 
+
+ <?php
+                $inif = '0';
+                $model = Mage::getModel('catalog/product'); //getting product model
+                $_product = $model->load($productId);
+                $inif = '1';
+                $currencySymbol = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+                $dealstatus = $_product->getDealStatus();
+                $discussionId = $_product->getIdentifier();
+                $discussStatus = Mage::getSingleton('core/session')->getDisStatusID();
+                $fbApiKey = Mage::getSingleton('facebook/config')->getApiKey();
+                /* HDflvplayer. */
+                $videoDetails = Mage::getBlockSingleton('videoupload/videoupload')->getVideoupload($productId);
+                $videoId = 0;
+                foreach ($videoDetails as $video) {
+                    $thumbName = $video->getThumname();
+
+                    $productId = $video->getentityId();
+                    $videoId = $video->getvideouploadId();
+                }
+                ?>
+
+
+
+
+<?php
+             
+    
+                $_gallery = $_product->getMediaGalleryImages();
+                $currentUrl = $this->helper('core/url')->getCurrentUrl();
+                $content = '&amp;';
+                           $appId = Mage::getStoreConfig('customer/facebook/api_id');
+                                $productUrl = $_product->getProductUrl();
+                     
+                //$map =   $_product->getsitemap();
+                $companyname = $_product->getCompanyname();
+                $customersite = $_product->getcustomersite();
+                $highlight = $_product->gethightlight();
+                $fineprint = $_product->getFineprint();
+                $website = $_product->getCustomerWebsite();
+                $map = $_product->getsitemap();
+                $phone = $_product->getQuestions();
+                $_description = $_product->getdescription();
+                $renderDescription = $this->helper('catalog/output')->productAttribute($_product, $_description, 'description');
+                $productName = urlencode($_product->getName());
+
+                $productDescription = urlencode(strip_tags($_description));
+				// $fbUrl = 'http://www.facebook.com/dialog/feed?app_id=' . $appId . '&amp;description=I joined MyMovieDeals.com and I thought you might be interested. They provide special offers and deals at movie theaters.&amp;picture=' . $productImage . '&amp;name=' . $productName . '&amp;message=&amp;redirect_uri=' . $productUrl . '&amp;link=' . $productUrl;
+				$fbUrl = 'http://www.facebook.com/dialog/feed?app_id=' . $appId . '&amp;description=' . $productDescription . '&amp;picture=' . $productImage . '&amp;name=' . $productName . '&amp;message=&amp;redirect_uri=' . $productUrl . '&amp;link=' . $productUrl;
+             
+        ?>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+        <!--
+        var j =1;
+        if (typeof(BackColor)=="undefined")
+            BackColor = "white";
+        if (typeof(ForeColor)=="undefined")
+            ForeColor= "black";
+        if (typeof(DisplayFormat)=="undefined")
+            DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% days %%M%% Min:%%S%% Sec</span>";
+        if (typeof(CountActive)=="undefined")
+            CountActive = true;
+        if (typeof(FinishMessage)=="undefined")
+            FinishMessage = "";
+        if (typeof(CountStepper)!="number")
+            CountStepper = -1;
+        if (typeof(LeadingZero)=="undefined")
+            LeadingZero = true;
+        CountStepper = Math.ceil(CountStepper);
+        if (CountStepper == 0)
+            CountActive = false;
+        var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
+        function calcage(secs, num1, num2) {
+           
+            if(secs>259200){
+            if(num1==3600){
+               
+                fullHours=((Math.floor(secs/num1)));//1017
+                days = ((Math.floor(secs/86400)%100000));//42
+                nrHours=fullHours-(24*days);
+                //s=nrHours;
+                s=nrHours.toString();
+                  }
+              else{
+                if(num1==86400){
+                    days = ((Math.floor(secs/num1)%num2));
+                    s = ((Math.floor(secs/num1)));
+                    s1=Math.floor(s/days);
+                   
+                    s=s.toString();
+                }   
+                else
+                s = ((Math.floor(secs/num1)%num2)).toString();
+
+
+            }
+
+                                
+
+                if (LeadingZero && s.length < 2)
+                    s = "0" + s;
+                return  s ;
+
+            }
+            else{
+
+            if(num1==3600){s = ((Math.floor(secs/num1))).toString();}
+            else{s = ((Math.floor(secs/num1)%num2)).toString();}
+            if (LeadingZero && s.length < 2)
+                s = "0" + s;
+            return  s ;
+
+            }
+        }
+        function CountBack(secs,iid,j) {
+            if (secs < 0) {
+                document.getElementById(iid).innerHTML = FinishMessage;
+                var dealimage = "<?php echo $this->getSkinUrl('images/8.png') ?>";
+                var buynowreplace = "<?php echo $this->getSkinUrl('images/deal-closed.png') ?>";
+                document.getElementById('deal_status-'+j).innerHTML ='<img src="'+dealimage+'"  alt="Rate" title="Rate"/><p style="padding-top: 10px;font-family: trebuchet ms;color: white;">Deal closed !</p> ';
+                document.getElementById('scriptbuynow-'+j).innerHTML ='<img src="'+buynowreplace+'"  alt="deal closed" title="deal closed"/>';
+                document.getElementById('scriptbuynow-'+j).setAttribute('href', '#!');
+                document.getElementById('script_gift_box').style.display = "none";
+                document.getElementById('price_value-'+j).innerHTML ='<p style="font-size:33px;"><?php echo $this->__('Closed'); ?></p>';
+                return;
+            }
+            if(secs>259200)
+            DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%D%% Days %%H%%:%%M%%</span>";
+            else
+            DisplayFormat = "<span class='hour' style='margin:2px 0 0 0'>%%H%% Hours %%M%%:%%S%%</span>";
+
+            DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+            DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600, 0));
+            DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+            DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+            document.getElementById(iid).innerHTML = DisplayStr;
+            if (CountActive)
+                setTimeout(function(){CountBack((secs+CountStepper),iid,j)}, SetTimeOutPeriod);
+        }
+        //-->
+
+    </script>
+
+<!--start of popup-box script-->
+<script type="text/javascript">
+var test1;
+function lightboxAction(Id)
+{
+    //document.body.style.overflow='hidden'
+    test1 = new Lightbox(Id);
+    test1.open();
+}
+function closeLink1()
+{   var error = $('onestepcheckout-login-error');
+    var forgot_box = $('onestepcheckout-forgot-form');
+    var login_box = $('onestepcheckout-login-form');
+    var forgot_errbox = $('onestepcheckout-forgot-error');
+	var register_box = $('register-form');
+    error.hide();
+    forgot_errbox.hide();
+    forgot_box.hide();
+    login_box.show();
+	register_box.hide();
+    //document.body.style.overflow='visible'
+    test1.close();
+}
+
+var url1 = document.location.href;
+var url1 = url1.split("#");
+//< ![CDATA[
+var myForm= new VarienForm('giftoption', true);
+//]]>
+</script>
+<div style="clear: both; height: 5px;"><!-- --></div>
+<div class='top-section'>
+    <div class='nine left deal-side'>
+        <div class='left-col left six'>
+			<img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(303,360); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>"  />
+         </div>
+         <div class='right-col right six'>
+<div class="deal-price-section">
+<?php if($this->helper('customer')->isLoggedIn()){?>
+
+<?php
+switch($_product->getButtontype()){
+    case '14': ?><a href="javascript:lightboxAction('redeem-form');" class="btn3" style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/visit_website.png');?>'/></a>
+	<?php break;
+    case '15': ?><a href='<?php echo $this->helper('checkout/cart')->getAddUrl($_product); ?>' class="btn3" style='background:transparent;float:left'><img src='<?php echo $this->getSkinUrl('images/buy_now.png');?>'/></a>
+	<?php break;
+    case '16': ?><a href="javascript:lightboxAction('redeem-form');" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/redeem_now.png');?>'/></a>
+	<?php break;
+    case '17': ?><a href="javascript:lightboxAction('redeem-form');" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/get_now.png');?>'/></a>
+	<?php break;
+    case '18': ?><a href="javascript:lightboxAction('redeem-form');" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/get_coupon.png');?>'/></a>
+	<?php break;
+	case '19': ?><a href="javascript:void();" onclick="window.open('<?php echo $_product->getAffiliatelink(); ?>', '<?php echo $_product->getName(); ?>', 'width=500, height=400, left=350, top=200, resizable=no, titlebar=no, toolbar=no, location=no, directories=no')" class="btn3" style='background:transparent;float:left'><img src='<?php echo $this->getSkinUrl('images/redeem_now.png');?>'/></a>
+	<?php break;
+	case '20': ?><a href="<?php echo $_product->getAffiliatelink(); ?>" class="btn3" style='background:transparent;float:left'><img src='<?php echo $this->getSkinUrl('images/get_now.png');?>'/></a>
+	<?php break;
+    default: ?><a href='<?php echo $this->helper('checkout/cart')->getAddUrl($_product); ?>' class="btn3"  style='background:transparent; float:left'><img src='<?php echo $this->getSkinUrl('images/buy_now.png');?>'/></a>
+	<?php }
+}
+else{
+
+
+switch($_product->getButtontype()){
+    case '14': ?><a href="javascript:lightboxAction('gift-form')" class="btn3" style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/visit_website.png');?>'/></a><?php
+    break;
+    case '15':
+       ?><a href="javascript:lightboxAction('gift-form')" class="btn3" style='background:transparent;float:left'><img src='<?php echo $this->getSkinUrl('images/buy_now.png');?>'/></a><?php
+    break;
+    case '16':
+       ?><a  href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent;float:left'><img src='<?php echo $this->getSkinUrl('images/redeem_now.png');?>'/></a><?php 
+    break;
+    case '17':
+       ?><a  href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/get_now.png');?>'/></a><?php 
+    break;
+    case '18':
+       ?><a  href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/get_coupon.png');?>'/></a><?php 
+    break;
+	case '19':
+       ?><a  href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/redeem_now.png');?>'/></a><?php 
+    break;
+	case '20':
+       ?><a  href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent;float:left' ><img src='<?php echo $this->getSkinUrl('images/get_now.png');?>'/></a><?php 
+    break;
+    default:
+       ?><a href="javascript:lightboxAction('gift-form')" class="btn3"  style='background:transparent; float:left'><img src='<?php echo $this->getSkinUrl('images/buy_now.png');?>'/></a><?php
+
+}
+
+}
+
+?>
+
+<!---start of login-popup code -->
+<div id="gift-form" style="display:none; position: fixed; z-index: 99999; height: auto;">
+<a class="close" href="javascript:closeLink1()"><img src="<?php echo $this->getSkinUrl('images/close_btn.png') ?>" alt="<?php echo $this->__('Close') ?>" width="62" height="61" title="<?php echo $this->__('close') ?>"  /></a>
+	<div class="onestepcheckout-popup-wrapper">
+		<div id="onestepcheckout-login-popup-contents-login">
+			<div id="onestepcheckout-login-form">
+				<p style="font-size: 18px; color: #6d6e71; font-family: 'CenturyGothicRegular';"><?php echo $this->__('Please login now to get this deal.'); ?></p>
+				<h3 style="float: left; text-transform: uppercase; font-size: 21px; font-family: 'CenturyGothicBold';"><?php echo $this->__('Login'); ?></h3>
+				<div class="clear"></div>
+				<form id="onestepcheckout-login-form-detail" style="margin: 0px;">
+					<div id="onestepcheckout-login-loading" style="display: none;" class="loading-ajax">&nbsp;</div><div class="clear"></div>
+						<table id="onestepcheckout-login-table" style="margin: 0px;">
+							<tbody>
+								<tr>
+									<td style="width: 30%; font-weight: bold;"><label for="id_onestepcheckout_username"><?php echo $this->__('Email'); ?></label>
+									<div style="clear: both;"><!-- --></div>
+									<input tabindex="100" type="text" class="input-text" name="onestepcheckout_username" id="id_onestepcheckout_username"></td>
+								</tr>
+								<tr>
+									<td style="font-weight: bold;"><label for="id_onestepcheckout_password"><?php echo $this->__('Password'); ?></label>
+									<div style="clear: both;"><!-- --></div>
+									<input type="password" tabindex="101" name="onestepcheckout_password" class="input-text" id="id_onestepcheckout_password"></td>
+									
+								</tr>
+								<tr style="height:10px;">
+									<td></td>
+								</tr>
+								<tr>
+									<td style="width: 19%;">
+										<div style="float: left;">
+											<button tabindex="102" id="onestepcheckout-login-button" class="button" type="button"><span><span><?php echo $this->__('Login'); ?></span></span></button>
+										</div>
+										<div style="float: left; margin-left: 10px; margin-top: 8px;">
+											<a style="padding-left:3px; cursor:pointer; font-size: 14px; font-family: 'CenturyGothicBold';" onclick="forgot_password();"><?php echo $this->__('Forgot password?'); ?></a>
+										</div>
+										<div style="clear: both; height: 5px;"><!-- --></div>
+										<!-- <a href="<?php echo $this->getUrl('customer/account/create/') ?>"><button class="button" type="button"><span><?php echo $this->__('Register Now'); ?></span></button></a> -->
+										<a href="javascript:register_form();"><button class="button" type="button"><span><?php echo $this->__('Register Now'); ?></span></button></a>
+										<div style="clear: both; height: 5px;"><!-- --></div>
+										<button onclick="javascript:closeLink1()" class="button" type="button"><span><?php echo $this->__('Maybe Later'); ?></span></button>
+									</td>
+									<td colspan="3">
+										<div id="onestepcheckout-login-error" class="onestepcheckout-error" style="display: none;">
+											<?php echo $this->__('Invalid login or password.'); ?>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+					</table>
+				</form>
+			</div>
+<!---End of login-popup code -->
+
+<!---Start of Forgot password -popup code -->
+<div style="clear: both; height: 10px;"><!-- --></div>
+<div id="onestepcheckout-forgot-form" style="display:none;">
+	<h3 style="float: left; text-transform: uppercase; font-size: 21px; font-family: 'CenturyGothicBold'; margin-bottom: 5px;"><?php echo $this->__('Forgot Password'); ?></h3>
+	<div class="clear"></div>
+	<p style="margin-bottom:10px; font-size:12px; font-family: 'CenturyGothicRegular'; color: #6d6e71;"><?php echo $this->__('Please enter your email address to receive a temporary password.'); ?></p>
+	<form>
+		<div id="onestepcheckout-forgot-loading" style="display: none;" class="loading-ajax">&nbsp;</div>
+		<div id="onestepcheckout-forgot-error" class="onestepcheckout-error" style="display: none;">&nbsp;</div>
+		<div id="onestepcheckout-forgot-success" style="display: none;">
+			<p style="margin-bottom:10px; font-size:12px; font-family: 'CenturyGothicRegular'; color: #6d6e71;"><?php echo $this->__('A temporary password has been sent to your email address. Please check your email.'); ?></p>
+		</div>
+		<table id="onestepcheckout-forgot-table">
+		<tr>
+			<td style="width: 100%;"><label for="id_onestepcheckout_email"><?php echo $this->__('Email'); ?></label>
+			<div style="clear: both;"><!-- --></div>
+			<input type="text" class="input-text" name="onestepcheckout_email" id="id_onestepcheckout_email" />
+			<div style="clear: both;"><!-- --></div>
+			<button id="onestepcheckout-forgot-button" class="button" onclick="sendpassword()" type="button"><span><span><?php echo $this->__('Send password'); ?></span></span></button>
+			<a style="cursor:pointer;display:none;padding-top:15px;float:left;" onclick="return_login()"><?php echo $this->__('Return to login'); ?></a>
+			</td>
+		</tr>
+		</table>
+	</form>
+</div>
+<!---End of Forgot password -popup code -->
+
+		</div>
+	</div>
+</div>
+
+<div id="register-form" style="display:none; position: fixed; z-index: 99999; height: auto;">
+<a class="close" href="javascript:closeLink1()"><img src="<?php echo $this->getSkinUrl('images/close_btn.png') ?>" alt="<?php echo $this->__('Close') ?>" width="62" height="61" title="<?php echo $this->__('close') ?>"  /></a>
+	<div class="onestepcheckout-popup-wrapper">
+		<!---Start of register -popup code -->
+		<div id="onestepcheckout-register-form">
+			<h3 style="float: left; text-transform: uppercase; font-size: 21px; font-family: 'CenturyGothicBold'; margin-bottom: 5px;"><?php echo $this->__('Create A New Account'); ?></h3>
+			<div class="clear"></div>
+			<p style="margin-bottom:10px; font-size:12px; font-family: 'CenturyGothicRegular'; color: #6d6e71;"><?php echo $this->__('Enter your name and email address below to create your account. Please check your email after submitting your information.'); ?></p>
+			
+				<ul>
+					<form name="signup" id="signup" method="post" action="<?php echo $this->getUrl('signup')?>">
+					<li><input type="text" id="account_name" name="account_name" value="" class="t1 required-entry" placeholder='Type your name'></li>
+					<li><input type="text" id="account_email" name="account_email" value="" class="t1 required-entry validate-email" placeholder='Type your email address'></li>
+					<div class='clear' style='height:10px;'></div>
+					<div class="links">
+						<span class="link1"><a href="javascript:void(0);" onclick="signup_submit();">SIGN UP</a></span>
+						<span class="link2"><a href="javascript:return_login()">ALREADY A MEMBER?</a></span>
+					</div>
+					</form>
+				</ul>
+				
+		</div>
+		<!---End of register -popup code -->
+	</div>
+</div>
+
+<div  id="redeem-form"  style="display:none; position: fixed; z-index: 99999;">
+<a style="margin-right: -30px; margin-top: -36px;" class="close" href="javascript:closeLink1()"><img src="<?php echo $this->getSkinUrl('images/close_btn.png') ?>" alt="<?php echo $this->__('Close') ?>" width="62" height="61" title="<?php echo $this->__('close') ?>"  /></a>
+	<div class="onestepcheckout-popup-wrapper">
+		<div id="onestepcheckout-login-popup-contents-login" style="">
+			<div id="onestepcheckout-login-form">
+				<div class="answerBn" style="text-align:center;">
+					<p style="font-size: 16px; color: #6d6e71; font-family: 'CenturyGothicRegular';"><?php echo $this->__("To get this deal you will be redirected to the deal's location."); ?></p>
+					<div style="clear: both;"><!-- --></div>
+					<a href='<?php echo $_product->getAffiliatelink(); ?>' class='yesBn'><button class="button" type="button"><span><?php echo $this->__('Continue'); ?></span></button></a>
+					<a href='javascript:closeLink1()' class='noBn'><button class="button" type="button"><span><?php echo $this->__('No'); ?></span></button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--start of popup-box script-->
+
+<!---popup-box script -->
+        <script type="text/javascript">
+		var registerForm = new VarienForm('signup');
+		function signup_submit(){
+			registerForm.submit();
+		}
+		
+            Event.observe(window, 'load', function() {
+
+                var button = $('onestepcheckout-login-button');
+                var loginButtonFunction = function(e) {
+
+                    /* Hide form and display loading */
+                    var table = $('onestepcheckout-login-table');
+                    var loading = $('onestepcheckout-login-loading');
+                    var error = $('onestepcheckout-login-error');
+
+                    table.hide();
+                    error.hide();
+                    loading.show();
+
+
+                    var form = $('onestepcheckout-login-form-detail');
+                    var url = 'http://www.mymoviedeals.com/index.php/onestepcheckout/index/login/';
+                    new Ajax.Request(url, {
+                        parameters: form.serialize(true),
+                        method: 'POST',
+                        onComplete: function(transport) {
+                            if(transport.status == 200) {
+                                var result = transport.responseText.evalJSON();
+
+                                if(!result.success) {
+                                    loading.hide();
+
+                                    error.update(result.error);
+                                    error.show();
+
+                                    table.show();
+                                }
+                                else    {
+                                    // Successfully logged in user, now reload page
+                                    //window.location.reload(true);
+                                    $('gift-form').hide();
+                                  <?php
+
+switch($_product->getButtontype()){
+    case '15':
+            echo 'closeLink1();setLocation("'.$this->helper('checkout/cart')->getAddUrl($_product).'")';
+    break;
+	
+    case '20':
+            echo 'redirect(\''.$_product->getAffiliatelink().'\')';
+    break;
+	
+    case '19':
+            echo 'redirect()';
+    break;
+        
+    default:
+    ?>lightboxAction('redeem-form');<?php 
+}
+    ?>
+
+
+
+
+
+
+                                  //  window.location=window.location;
+                                }
+                            }
+                        }
+                    })
+                };
+
+                var onkeypressHandler = function(event) {
+                    if(event.keyCode == Event.KEY_RETURN)  {
+                        event.preventDefault();
+                        loginButtonFunction();
+                    }
+                };
+
+
+                button.observe('click', loginButtonFunction);
+
+            })
+function redirect(url){
+	if(typeof(url) != 'undefined' && url !=''){
+		window.location=url;
+	}
+	else{
+		window.location=window.location
+	}
+    
+}
+        function sendpassword()
+        {
+
+            var table = $('onestepcheckout-forgot-table');
+            var loading = $('onestepcheckout-forgot-loading');
+            var error = $('onestepcheckout-forgot-error');
+            var success = $('onestepcheckout-forgot-success');
+            var email = $('id_onestepcheckout_email').getValue();
+
+            if(email != '') {
+
+                table.hide();
+                error.hide();
+                loading.show();
+
+                var url = 'http://www.mymoviedeals.com/index.php/onestepcheckout/index/forgotPassword/';
+                var parameters = { email: email };
+
+                new Ajax.Request(url, {
+                    method: 'post',
+                    parameters: parameters,
+                    onSuccess: function(transport)  {
+                        var result = transport.responseText.evalJSON();
+
+                        if(result.success)  {
+                             loading.hide();
+                             success.show();
+                        }
+                        else    {
+                            error.update('Please enter a registered email address.');
+                            error.show();
+                            table.show();
+                            loading.hide();
+                        }
+                    }
+                });
+
+            }
+            else    {
+                alert('Please enter a valid email address');
+            }
+}
+    function forgot_password()
+     {
+        $('onestepcheckout-login-form').hide();
+        $('onestepcheckout-forgot-form').show();
+
+     }
+    /*function return_login()
+     {
+        $('onestepcheckout-forgot-form').hide();
+        $('onestepcheckout-login-form').show();
+     }*/
+    function register_form()
+     {
+        $('gift-form').hide();
+        $('register-form').show();
+     }
+    function return_login()
+     {
+        $('register-form').hide();
+        $('gift-form').show();
+     }
+	</script>
+<?php
+
+
+
+
+/*
+if(strlen($_product->getAffiliatelink())>0):
+?>
+   
+
+    <a href='<?php echo $_product->getAffiliatelink(); ?>' class="btn3" target='_blank'>REDEEM NOW</a>
+
+<?php else:?>
+<?php 
+$resource1 = Mage::getSingleton('core/resource');
+                      $dealPayment = $resource1->getConnection('core_write');
+                      $productStatus = $dealPayment->fetchAll("Select * from filecode where product_id = '$productId'");
+                      $voucherStatus = $dealPayment->fetchAll("Select * from vouchercode where status = '$productId'");
+                      $pStatus = count($productStatus);
+                    
+                      if((count($voucherStatus) > 0)&&($pStatus != 0)) { ?>
+<a href='<?php echo $this->helper('checkout/cart')->getAddUrl($_product); ?>' class="btn3 buy-now">BUY NOW</a>
+<?php } else if(($pStatus == 0)&&(count($voucherStatus) > 0)) { ?>                
+     <span class="btn3 buy-now" style="font-size:25px;"><?php echo $this->__('Out of stock') ?></span>
+                    <?php } else { ?>
+                    <a href='<?php echo $this->helper('checkout/cart')->getAddUrl($_product); ?>' class="btn3 buy-now">BUY NOW</a>
+                    <?php } ?>
+<?php endif;
+
+*/
+?>
+		<div class="deal-price">
+			<span><?php $sp_price = floor($_product->getSpecialPrice()); ?><?php echo $currencySymbol . Mage::helper('core')->currency($sp_price, false, true) ?></span>
+		</div>
+    </div>
+	
+	<div class='deal-desc'>
+		<h2><?php echo $companyname;?></h2>
+		<h5><?php echo $customersite; ?></h5>
+		<h3><?php echo $this->htmlEscape($_product->getName()) ?></h3>
+		<p><?php echo $_product->getShortDescription(); ?></p>
+        <div class="soc-section">
+            <label>SHARE THIS DEAL:</label>
+				<?php
+					$baseUrl = Mage::getBaseUrl();
+					$mailBody = $_description . '<br/> Url : ' . $productUrl;
+					$mail = "mailto:?body=" . htmlspecialchars(strip_tags($mailBody)) . "&amp;subject=" . $_product->getName();
+				?>
+				
+				<ul>
+					<li><a target='_blank' href="http://twitter.com/home?status=<?php echo $_product->getName(); ?>:<?php echo $productUrl; ?>"><img alt="" src="<?php echo $this->getSkinUrl('images/twitter-small.jpg');?>"></a></li>
+					<li><a href="<?php echo $fbUrl; ?>" target='_blank'><img alt="" src="<?php echo $this->getSkinUrl('images/facebook-small.jpg');?>"></a></li>
+					<li class="clear-margin"><a href="<?php echo $mail; ?>" target='_blank'><img alt="" src="<?php echo $this->getSkinUrl('images/mail.jpg');?>"></a></li>
+				</ul>
+		</div>
+
+ <?php
+                            $count=1;
+                            //product's regular Price
+                            $todayDate = Mage::getModel('catalog/product')->getResource()->formatDate($_product->getspecial_to_date(), false);
+                            $expirydate = $todayDate . ' ' . $_product->gettime();
+            ?>
+
+              <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $count; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $count; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $count; ?>)-(dthen<?php echo $count; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $count; ?>)-(dnow<?php echo $count; ?>));
+                            gsecs<?php echo $count; ?> = Math.floor(ddiff.valueOf()/1000);
+
+                            var iid<?php echo $count; ?> = "countbox_<?php echo $count; ?>";
+                            CountBack(gsecs<?php echo $count; ?>,"countbox_"+j, j);
+                            j++;
+                            //-->
+                        </script> 
+                        <div class='clear' style='height:10px;'></div>
+<div class="table">
+    <div class="table-heading">
+
+    <img class="left" alt="" src="<?php echo $this->getSkinUrl('images/watch-blk.jpg');?>">
+    <h4 style='float:left;'>Offer Ends In</h4><span class='cnts'>  <div id="countbox_<?php echo $count; ?>" class="cntdwn"></div>
+                          </span>
+    </div>
+
+    <?php
+		$resultQuantity = $this->getQuantityPurchase($_product);
+    ?>
+    <ul>
+        <?php
+        $re = number_format($voucherStatus[0]['title']) - $qtyStock-$resultQuantity[0];
+			// print_r($resultQuantity);
+			$qtyStock = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty();
+       if(count($voucherStatus) > 0) {
+        ?>
+    <li class="first-blk">
+    <small>Offer is limited to </small>
+    <span><?php //echo number_format($qtyStock); ?></span><span>
+    <?php echo number_format($voucherStatus[0]['title']); ?></span>
+    </li>
+    <li>
+    <small>Quantity Sold </small>
+    <span><?php echo $resultQuantity[0];?></span>
+    </li>
+    <li>
+    <small>Available Left </small>
+    <span><?php //echo $qtyStock-$resultQuantity[0];?></span>
+     <span><?php echo $re;?></span>
+    </li>
+    <?php } else { ?><li class="first-blk">
+    <small>Offer is limited to </small>
+    <span><?php echo number_format($qtyStock); ?></span><span>
+     </li>
+    <li>
+    <small>Quantity Sold </small>
+    <span><?php echo $resultQuantity[0];?></span>
+    </li>
+    <li>
+    <small>Available Left </small>
+    <span><?php echo $qtyStock-$resultQuantity[0];?></span>
+   
+    </li><?php } ?>
+    </ul>
+    </div>
+
+            </div>
+         </div>
+
+    </div>
+
+<div class='my-right-col'>
+<div class='right-sec'>
+    <h4><?php  echo $companyname;?></h4>
+    <a href="http://<?php echo $website;?>" target="_blank" class="c-name"><?php echo $website;?> </a>
+    <span><?php echo $phone;?></span>
+    <?php  echo $map = $_product->getsitemap(); ?>
+	<div class="mobile-section" style="display: none;">
+		<h3>map</h3>
+		<?php  echo $map = $_product->getsitemap(); ?>
+		<h4><?php  echo $companyname;?></h4>
+		<a href="http://<?php echo $website;?>" target="_blank" class="c-name"><?php echo $website;?> </a>
+		<span><?php echo $phone;?></span>
+	</div>
+	<address><?php echo $customersite; ?></address>
+</div>
+    </div>
+
+<?php
+    $count = 1;
+
+
+
+?>
+      <div class='clear' style='height:10px;'></div>
+
+<div class="bottom-sector">
+ <div class="review left">
+    <span class="review-movie">
+
+
+
+<?php $videos= $_product->getVideo() ;?>
+
+    <?php
+    $allVideos=explode(',', $videos);
+
+
+    ?>
+
+ <?php
+                parse_str( parse_url( $allVideos[0], PHP_URL_QUERY ),$vars );
+
+
+             ?>
+
+<iframe width="379" height="240" src="http://www.youtube.com/embed/<?php echo $vars['v'];?>?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+
+
+
+    <div class="review-sh-desc">
+    
+    <div class="review-it">
+    <h4 class="eight"><?php echo $_product->getReviewTitle() ? $_product->getReviewTitle() : 'Movie Review'; ?></h4>
+    
+        <ul class="four">
+        <?php 
+            $stars = (int) $_product->getAttributeText('stars'); 
+            for($star=1; $star <= $stars; $star++): 
+        ?>
+            <li><?php echo $star; ?></li>
+        <?php
+            endfor;
+        ?>
+        </ul>
+    <?php if($_product->getLink()): ?>
+        </a>
+    <?php endif; ?>
+    </div>
+    
+   <div class="desc-review"> 
+   <p><?php echo $_product->getReviewText(); ?></p>
+    <?php if($_product->getLink()): ?>
+        <a href="<?php echo $_product->getLink() ?>" class="dir" target="_blank">&gt;&gt; Read reviews</a>
+    <?php endif; ?>
+    </div>
+    </div>
+    </div>
+    <div class="review-desc">
+     <?php 
+    $attachments = $this->getLayout()->createBlock('fileuploader/fileuploader')->getProductAttachments($_product->getId());
+    if(!empty($attachments)):?>
+
+  <div class="desc-block">
+      <section class="slider">
+      <form action="">
+        <a href="#" id="mycarousel-prev"><< previous</a>
+        <select style='display:none;'>
+          <option value="1">Scroll 1 item per click</option>
+          <option value="2">Scroll 2 items per click</option>
+          <option value="3">Scroll 3 items per click</option>
+          <option value="4">Scroll 4 items per click</option>
+          <option value="5">Scroll 5 items per click</option>
+        </select>
+        <a href="#" id="mycarousel-next"> next >></a>
+      </form> 
+
+         <script type="text/javascript">
+function mycarousel_initCallback(carousel) {
+    $j('.jcarousel-control a').bind('click', function() {
+        carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
+        return false;
+    });
+
+    $j('.jcarousel-scroll select').bind('change', function() {
+        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
+        return false;
+    });
+
+    $j('#mycarousel-next').bind('click', function() {
+        carousel.next();
+        return false;
+    });
+
+    $j('#mycarousel-prev').bind('click', function() {
+        carousel.prev();
+        return false;
+    });
+};
+
+$j(document).ready(function() {
+
+   
+    $j('#slider4').jcarousel({
+        scroll:1,   
+                initCallback: mycarousel_initCallback,
+
+        buttonNextHTML: null,
+        buttonPrevHTML: null});
+
+
+});
+
+</script>
+
+        <ul class="jcarousel-skin-tango2" id="slider4">
+                <?php  /*foreach($allVideos as $key=>$value):?>
+                  
+                                    
+<?php
+                                parse_str( parse_url($value, PHP_URL_QUERY ),$data);
+                             ?>
+                        <li id='<?php echo $data['v'];?>' <?php if($key==0):?> style='display:none'<?php endif;?>>
+                                
+                             <img src='http://img.youtube.com/vi/<?php echo $data['v'];?>/1.jpg'/>
+                             <h2><?php echo $field['trailer_name'];?></h2>
+                        </li>
+
+            <?php endforeach;*/?>
+            
+            <?php foreach($attachments as $data):?>                  
+                    <li id='pic<?php echo $data['id'];?>'>
+                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$data['uploaded_file'];?>" rel="lightbox[plants]" title="<?php echo $_product->getName();?>"><img src="/timthumb.php?src=<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$data['uploaded_file'];?>&h=153&w=193&zc=0&q=100" /></a>
+                    </li>
+            <?php endforeach;?>
+
+        </ul>             
+    </div> <?php endif;?>
+  
+    <div class="desc-block">
+    <h4>DESCRIPTION</h4>
+	<p><?php echo $_description; ?></p>
+    </div>
+    
+    <div class="desc-block">
+    <h4>FINE PRINT</h4>
+    <p>
+<?php echo $fineprint;?>    </p>
+    </div>
+    
+    
+    </div>
+    </div>
+
+</div>
+   
+<?php if(1==0):?>
+
+<div class="top-content">
+    <div class="nine left deal-area">
+            <div class="deal-header">
+                <h1 class="five left">
+                FEATURED DEAL
+                </h1>
+              <span class="four right rght-deal-header">
+                 <img src="<?php echo $this->getSkinUrl('images/watch.png');?>" alt="" class="left">
+              <span><small>offer ends in</small>              </span>
+
+
+    <div class="timerbox" >
+                                        <div class="viraiterbg">
+                                            <div id="countbox_<?php echo $count; ?>" class="cntdwn"></div>
+                                        </div>
+                                     
+                                    </div>
+
+
+            </span>
+
+            </div>
+      
+
+
+
+<div class='my-right-col'>
+<div class='right-sec'>
+<?php
+echo   $map = $_product->getsitemap();
+             ;
+?>
+</div>
+    </div>
+</div>
+
+
+       <?php
+                $inif = '0';
+                $model = Mage::getModel('catalog/product'); //getting product model
+                $_product = $model->load($productId);
+                $inif = '1';
+                $currencySymbol = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+                $dealstatus = $_product->getDealStatus();
+                $discussionId = $_product->getIdentifier();
+                $discussStatus = Mage::getSingleton('core/session')->getDisStatusID();
+                $fbApiKey = Mage::getSingleton('facebook/config')->getApiKey();
+                /* HDflvplayer. */
+                $videoDetails = Mage::getBlockSingleton('videoupload/videoupload')->getVideoupload($productId);
+                $videoId = 0;
+                foreach ($videoDetails as $video) {
+                    $thumbName = $video->getThumname();
+                    $productId = $video->getentityId();
+                    $videoId = $video->getvideouploadId();
+                }
+                ?>
+
+
+<?php
+                $_gallery = $_product->getMediaGalleryImages();
+                $currentUrl = $this->helper('core/url')->getCurrentUrl();
+                $content = '&amp;';
+                           $appId = Mage::getStoreConfig('customer/facebook/api_id');
+                                $productUrl = $_product->getProductUrl();
+                     
+                //$map =   $_product->getsitemap();
+                $customersite = $_product->getcustomersite();
+                $highlight = $_product->gethightlight();
+                $fineprint = $_product->getFineprint();
+                $website = $_product->getCustomerWebsite();
+                $map = $_product->getsitemap();
+                $phone = $_product->getQuestions();
+                $_description = $_product->getdescription();
+                $renderDescription = $this->helper('catalog/output')->productAttribute($_product, $_description, 'description');
+       
+                $productDescription = urlencode(strip_tags($_description));
+                                $fbUrl = 'http://www.facebook.com/dialog/feed?app_id=' . $appId . '&amp;description=' . $productDescription . '&amp;picture=' . $productImage . '&amp;name=' . $productName . '&amp;message=&amp;redirect_uri=' . $redirectUrl . '&amp;link=' . $productUrl;
+             
+        ?>
+             <div class="deal-content">
+    <span class="four left left-col">
+        <img src='<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(210); ?>' />
+    </span>
+    <div class="left right-col">
+    <div class="soc-section ">
+    <label>SHARE THIS DEAL:</label>
+    <ul>
+    <li><a  href="<?php echo $productDescription;?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/twitter-small.jpg');?>" alt=""></a></li>
+    <li><a href="<?php echo $productDescription;?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/facebook-small.jpg');?>" alt=""></a></li>
+    <li class="clear-margin"><a  href="<?php echo $productDescription;?>" target='_blank'><img src="<?php echo $this->getSkinUrl('images/mail.jpg');?>" alt=""></a></li>
+    </ul>
+    </div>
+    <div class="content-col">
+    <h2><?php echo $this->htmlEscape($_product->getName()) ?></h2>
+    <h3>COMPANY NAME</h3>
+    <h3 class="ch-co">NATIONWIDE</h3>
+    <p>
+<?php echo $_description;?>
+    </p>
+   <a href='<?php echo $productUrl;?>'class="btn1">&gt;&gt; view deal</a>
+   <div class="price-section"  style='display:none';>
+    <div class="price">
+    <span><?php $sp_price = floor($_product->getSpecialPrice()); ?>
+<?php echo $currencySymbol . Mage::helper('core')->currency($sp_price, false, true) ?> 
+    </span>only
+    </div>
+ 
+    </div>
+    
+
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="three left form-area my-col-right colSignRight">
+        <h2>Sign up for a Mymoviedeals account!!!</h2>
+    <ul>
+		<form name="signup" method="post" action="signup">
+        <li><input type="text" name="name" value="" class="t1" placeholder='Type your name'></li>
+		<li><input type="text" name="email" value="" class="t1" placeholder='Type your email address'></li>
+		<div class='clear' style='height:10px;'></div>
+		<div class="links">
+			<span class="link1"><a href="javascript:void(0);" onclick="this.form.submit();">CONTINUE SIGNING UP</a></span>
+			<span class="link2"><a href="#">ALREADY A MEMBER?</a></span>
+			<span class="link2"><a href="#">MAYBE LATER</a></span>
+		</div>
+        </form>        
+		</div>
+	</ul>
+   </div> 
+
+  
+
+<?php endif;?>
+
+
+<?php
+              ;           //product's regular Price
+                            $todayDate = Mage::getModel('catalog/product')->getResource()->formatDate($_product->getspecial_to_date(), false);
+                            $expirydate = $todayDate . ' ' . $_product->gettime();
+            ?>
+   <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $count; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $count; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $count; ?>)-(dthen<?php echo $count; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $count; ?>)-(dnow<?php echo $count; ?>));
+                            gsecs<?php echo $count; ?> = Math.floor(ddiff.valueOf()/1000);
+
+                            var iid<?php echo $count; ?> = "countbox_<?php echo $count; ?>";
+                            CountBack(gsecs<?php echo $count; ?>,"countbox_"+j, j);
+                            j++;
+                            //-->
+                        </script>
+                         <script type="text/javascript">
+                            <!--
+
+                            var dthen<?php echo $count; ?> = new Date("<?php echo Date("m/d/y h:i:s A", strtotime($expirydate)); ?>");
+                            start = "<?php echo Date("m/d/y h:i:s A", strtotime(Mage_Core_Model_Locale::date(null, null, "en_US", true))); ?>";
+                            start_date = Date.parse(start);
+                            var dnow<?php echo $count; ?> = new Date(start_date);
+                            if(CountStepper>0)
+                                ddiff= new Date((dnow<?php echo $count; ?>)-(dthen<?php echo $count; ?>));
+                            else
+                                ddiff = new Date((dthen<?php echo $count; ?>)-(dnow<?php echo $count; ?>));
+                            gsecs<?php echo $count; ?> = Math.floor(ddiff.valueOf()/1000);
+
+                            var iid<?php echo $count; ?> = "countbox_<?php echo $count; ?>";
+                            CountBack(gsecs<?php echo $count; ?>,"countbox_"+j, j);
+                            j++;
+                            //-->
+                        </script>
+                          <script type="text/javascript">
+    //<![CDATA[
+        var ajaxAddToCartProductAddToCartForm = new VarienForm('ajaxaddtocart_product_addtocart_form');
+        // ajaxAddToCartProductAddToCartForm.submit = function(button, url) {
+        ajaxAddToCartProductAddToCartForm.submit = function(button) {
+            // alert('submit');
+            // alert(this);
+            // alert(this.validator);
+            // alert(this.validator.validate());
+            if (this.validator.validate()) {
+                // alert("validated");
+                // $('product_type_data_container').hide();
+                hideProductTypeDataPopup();
+                diShowLayer(); // Element.show('loading-mask');             
+                // do the same with a callback:
+                
+                $('ajaxaddtocart_product_addtocart_form').action = prepareAjaxaddtocartUrl($('ajaxaddtocart_product_addtocart_form').action);
+                
+                $('ajaxaddtocart_product_addtocart_form').request({
+                    onComplete: function(transport){ 
+                        diHideLayer(); //Element.hide('loading-mask');
+                        
+                        var json = transport.responseText.evalJSON();
+                        // alert(json);
+                        if(json.r=="failure"){
+                            // alert(json.message);
+                            diShowOnlyLayer();
+                            $(product_type_data_container_id).show();
+                            // window.location = json.redirect_url;
+                        }else if(json.in_cart=="success"){
+                            updateTopCartLink(json.topCartText);
+                            updateBigCart(json.cart);
+                            //document.getElementById('main').innerHTML = json.cart;
+                            
+                            var scripts = json.cart.extractScripts();
+                            for(var i=0; i<scripts.length; i++){
+                                var code = scripts[i].strip().gsub(/var\s+/, '');
+                                eval(code);
+                            }
+                            
+                            //Effect.BlindDown('main');
+                            findAndCleanUpDeleteUrls();
+                            diHideLayer();
+                        }else{
+                            if(json.message){
+                                showDialog(json.message);
+                            }
+                            updateTopCartLink(json.topCartText);
+                            // alert(json.big_cart);
+                            if(json.big_cart){
+                                updateBigCart(json.big_cart);
+                            }
+                            if(json.cart){
+                                updateSideBarCart(json.cart);
+                            }
+                            findAndCleanUpDeleteUrls();
+                        }
+                    }, parameters:'in_cart=<?php echo ($this->getRequest()->getParam('in_cart'))?$this->getRequest()->getParam('in_cart'):"0"; ?>'
+                })
+            }else{
+                // alert("no validation");
+            }
+        }.bind(ajaxAddToCartProductAddToCartForm);
+
+        ajaxAddToCartProductAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(ajaxAddToCartProductAddToCartForm);
+    //]]>
+    </script>

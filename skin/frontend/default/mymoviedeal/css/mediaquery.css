@@ -1,0 +1,260 @@
+
+/* Media Query */
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+.top-head-sec select{ margin:2% 0 1% 2%;}
+.mid-content li{ margin:0 19px 16px 0;}
+.mid-content ul{}
+.sub-nav ul { font-size:73%;}
+.dd{ padding:0px 0px 0 0 !important;}
+.top-head-sec select{ width:36%; float:right !important; margin:7px 10px 0 0;}
+.txtbx4{ width:56%;}
+.txtbx5{ width:32%;}
+.top-head-sec h3{ line-height:37px;}
+
+}
+
+@media only screen and (min-width : 768px) and (max-width : 959px){
+	
+.sub-nav li a{ padding:0 7px;}	
+.review-it li{ margin:0 0% 0 0;}	
+	
+	}
+ @media only screen and (min-width: 768px) and (max-width: 959px) {
+
+ html,body{
+-webkit-text-size-adjust:90%;
+
+}
+.container-outer{ overflow-x:hidden;  }
+ .container {
+width: 768px;
+margin:0 auto;
+}
+.logo{ width:17%;}
+.sub-nav li{ font-size:89%;}
+.sub-nav a{padding:0px 5px;}
+.main-nav li{ font-size:122%;}
+.info{ float:left;}
+.s-text{ width:69%;}
+.btn-s{ float:left;}
+.deal-content .left-col{ width:28%;}
+.right-col{ margin:0px 0px 0px 20px;}
+.dd{ width:70% !important;}
+.txtbx4{ width:54%;}
+.txtbx5{ width:32%;}
+.top-head-sec select{ margin:2.2% 0 1% 2%;}
+.soc-section label{ width:35%;}
+.soc-section ul{ width:40%;}
+.top-content, .mid-content,.bottom-content, .top-section{ width:95%;}
+
+.t1{ width:90%;}
+.my-footer-left{ width:71% !important; margin:0 0 0 3%;}
+.my-footer-right{ margin:0 0 0 6%;}
+.mid-content li{width:31%;}
+.right-grid{ margin:0 0px 0 0px; font-size:75%; float:right; width:47%;}
+.right-grid a{ margin:45px 0px 0px 0px;}
+.mid-content ul{}
+.rght-deal-header{ width:37% !important;}
+.my-footer-left{ margin:18px 0px 0px 0px;}
+.deal-desc{ margin:7.5% 0 0 0;}
+.deal-side .left-col img{ height:23.2%;}
+.bottom-content{ width:81%;}
+.review-it li{ margin:0 0% 0 0;}
+.prev, .next{ top:15%;}
+.footer{ width:95.5%; margin:0 auto;}
+.top-sec{ font-size:85% !important;}
+/*step-carousel */
+
+.stepcarousel{ width:410px; background:red;}
+.stepcarousel .panel{ margin:0px 0px 0px 0px;}
+.stepcarousel .panel{ height:105px;}
+.r-arrow{ right:0px !important;}
+.map iframe{ }
+/*step-carousel ends */
+}
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 320px) and (max-width:480px) {
+ .container {
+
+}
+
+}
+/* #Clearing
+================================================== */
+
+@media all and (min-width:320px) and (max-width:767px) and (orientation : portrait)  {
+.slider-menu{ top:-3px !important;}
+.main-nav{ padding:20% 0 0 0 !important; margin:0 !important;}
+.container-outer{background:url(../images/header-bg.png) left 10px repeat-x  !important; overflow-x:hidden;}
+.site-info{ width:100%; float:none;}
+.login-sec ul{ margin:0.2em 0 0 0 !important;}
+.dd label{  }
+.dd{ width:100% !important; padding:8px 0px 0 0 !important;}
+.info ul, .srch{ float:left;}
+
+.form-area ul , .links, .terms{ width:250px; margin:0 auto; }
+.terms{ padding:0 0 0 10px !important;}
+.srch{ position:absolute; right:9px !important; top:-20px !important;}
+.header .social-bookmark{ width:43% !important; }
+.login-sec li{ margin:0 8px 0px 0px !important; font-size:100% !important;}
+.soc-section label{ width:45% !important; font-size:75%;}
+.soc-section ul{padding:0; width:47% !important; margin:0;}
+.right-col{ width:65%;}
+.top-head-sec select{width:54% !important;}
+.dd label{ font-size:70% !important; height:30px !important; }
+.mid-content ul{ padding:0; }
+.deal-img{ padding:5% !important; }
+.deal-img img{}
+
+.pagenavi a{ margin:15px 3px 0px 0px !important;}
+
+.page-header h1{ font-size:1.7em !important;}
+.deal-side .left-col{ margin:0 0 0 -7px !important;}
+.container{ padding:0 0 0 10px !important; width:310px;}
+.mid-content li{ padding:0 0 10px 0px; margin:0;}
+.deal-content .left-col img{ width:100% !important; height:auto !important;}
+.prev img, .next img{ width:40px; height:auto;}
+.prev{ left:14px; top:35%;}
+.next{ right:10px; top:35%;}
+.rslides{ height:250px !important; background:#fff; font-size:80%; }
+.rslides h2{ font-size:175%;}
+.rslides h3{ font-size:150%;}
+.right-sl-content, .left-sl-cont{ width:100%; padding:10px 0;}
+.txtbx4{ width:40%; font-size:80%;}
+.main-nav{ padding:20px 0 14px 10px !important;}
+.review-it li{ margin:0;}
+.bottom-content{ paddinf:1em 1%; width:62%;}
+
+}
+@media all and (min-width:320px) and (max-width:767px){
+	.btn1{ float:none;}
+	.price{ text-align:left;}
+ html,body{-webkit-text-size-adjust:80%;
+
+}
+.container{ overflow-x:hidden; width:320px; margin:0 auto;}
+.txtbx4{ width:42%; font-size:80%;}
+.sub-nav{ display:none !important;}
+.logo{ width:30%; height:auto;}
+.navigation{ width:60% !important;}
+.header .site-info{ width:100%;}
+.sub-nav li{ font-size:89%;}
+.sub-nav a{padding:0px 5px;}
+.main-nav li{ font-size:100%; margin:0px 16px 0px 0px;}
+.main-nav{ margin:0 0 0 -10px;}
+.s-text{ width:69%;}
+.btn-s{ float:left;}
+.deal-content .left-col{ width:28%;}
+.right-col{ margin:0px 0px 0px 20px;}
+.dd{ width:70%;}
+.info ul, .srch{ /*float:left;*/}
+.login-sec ul{ margin:1em 0 0 0; float:left;}
+.info {
+	width:100% !important;
+	float:none;
+  clear:both;
+  float:left;
+  margin:0;
+  position:relative;
+}
+.srch{ /*position:absolute;*/ right:0px; top:-50px;}
+.login-sec{ float:left; width:40%; margin:15px; }
+.login-sec li{ margin:0 15px 0px 0px; font-size:130%;}
+.deal-area{ width:100% !important;}
+.left-col{ width:25% !important; height:auto;}
+.soc-section label{ width:35%;}
+.soc-section ul{ width:41%; margin:0;}
+.form-area ul , .links, .terms{ padding:0px 0px 0px 10px;}
+.terms{ display:block; padding:5px 10px;}
+.bot-con{ width:92%; float:left !important; }
+.bottom-content .right-column{ margin-top:10px;}
+.my-footer-left{padding:0px 7% 0px 3%; width:90% !important;}
+.my-footer-right{ padding:0px 5%; width:90% !important;}
+.my-footer-right ul{ margin:0;}
+.top-head, .my-col-left, .my-col-right,.rght-deal-header, .deal-header h1, .price-section, .soc-section{ width:100% !important;}
+.dd{ padding:0px 0px 0px 0px; width:75%; height:35px;}
+.top-head-sec h3{ padding:0px 10px; font-size:80%; height:35px; }
+.dd label{ width:110px; display:inline-block; line-height:12px; margin:6px 0px 0px 0px;}
+.top-head-sec select{/*width:200px;*/ width:58%;}
+.link2 a{ width:50%;}
+.rght-deal-header{ padding:0 0 5px 0px;}
+.deal-header h1{ line-height:20px;}
+.mid-content li{ width:95%; margin:0;}
+.mid-content ul{ padding:0 0 0 20px;}
+.deal-img{ padding:3px;}
+.pagenavi a{ width:13px; height:13px; line-height:13px; margin:15px 4px 0px 0px;}
+
+/*iphone menu */
+.iPhoneMenu {
+/*width:24%;*/
+color:#DCDCDC;
+text-decoration:none;
+float:left;
+font-size:1.4em;
+line-height:2em;
+text-transform:none;
+
+
+}
+.slider-menu{ position:relative; display:inline-block; left:0px; top:0px; font-size:80%;}
+.SlideMenu {
+width:160px;
+z-index:99999;
+background-color: black;
+position:absolute;
+left:0px;
+top:28px;
+border:3px solid rgb(211,230,239);
+background: #878787;
+
+}
+.SlideMenu li a {
+font-family:'CenturyGothicBold';
+font-size:1.2em;
+line-height:1.5em;
+color:rgb(255,255,255);
+display:block;
+padding:0px 0px;
+font-weight:normal;
+
+}
+
+.SlideMenu li{ margin:5px 5px ;}
+.SlideMenu li a:hover {
+ text-decoration:none; color:#DC582F;
+}
+.nav-outer nav{ diplay:none !important;}
+
+.header{position:relative;}
+
+.header .social-bookmark{ overflow:hidden; float:right; width:27%; }
+.page-header h1{ font-size:1.8em;}
+.my-right-col{ float:none; width:100%; clear:both;}
+.deal-side .right-col{ float:none; width:96% !important; clear:both;}
+.deal-side .left-col { float:none; width:auto !important; clear:both; text-align:center;}
+.deal-side .left-col img{ text-align:center;}
+.deal-side { float:none; width:100% !important; clear:both;}
+.deal-desc{ margin:0 0 0 !important;}
+.review-movie{ display:block; overflow:hidden;}
+.review-sh-desc, .review-desc{ width:100% !important;}
+.review{ float:none; width:100% !important; clear:both; margin:0 !important;}
+.desc-review{ margin-bottom:10px;}
+.prev img, .next img{ width:40px; height:auto;}
+.prev{ left:14px; top:35%;}
+.next{ right:10px; top:35%;}
+.rslides{ height:200px; background:#fff; font-size:80%; }
+.rslides h2{ font-size:250%;}
+.rslides h3{ font-size:200%;}
+.right-sl-content, .left-sl-cont{ width:100%; padding:10px 0;}
+.footer-bottom{ text-align:center;}
+.top-head-sec{ display:none;}
+/*.table{ width:96%;}*/
+}
+

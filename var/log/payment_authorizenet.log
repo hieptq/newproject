@@ -1,0 +1,380 @@
+2012-08-10T12:12:53+00:00 DEBUG (7): Array
+(
+    [request] => Array
+        (
+            [x_version] => 3.1
+            [x_delim_data] => True
+            [x_relay_response] => False
+            [x_test_request] => TRUE
+            [x_login] => ****
+            [x_tran_key] => ****
+            [x_type] => AUTH_ONLY
+            [x_method] => CC
+            [x_invoice_num] => 100000001
+            [x_amount] => 15
+            [x_currency_code] => USD
+            [x_allow_partial_auth] => False
+            [x_first_name] => Asher
+            [x_last_name] => Ali
+            [x_company] => 
+            [x_address] => NA
+            [x_city] => NA
+            [x_state] => Alabama
+            [x_zip] => 987654
+            [x_country] => US
+            [x_phone] => 032154857
+            [x_fax] => 
+            [x_cust_id] => 2
+            [x_customer_ip] => 182.186.219.180
+            [x_customer_tax_id] => 
+            [x_email] => asher.inbox@gmail.com
+            [x_email_customer] => 1
+            [x_merchant_email] => asher.inbox@gmail.com
+            [x_ship_to_first_name] => Asher
+            [x_ship_to_last_name] => Ali
+            [x_ship_to_company] => 
+            [x_ship_to_address] => NA
+            [x_ship_to_city] => NA
+            [x_ship_to_state] => Alabama
+            [x_ship_to_zip] => 987654
+            [x_ship_to_country] => US
+            [x_po_num] => 
+            [x_tax] => 0
+            [x_freight] => 0
+            [x_card_num] => ****
+            [x_exp_date] => ****
+            [x_card_code] => ****
+        )
+
+    [result] => Array
+        (
+            [response_code] => 3
+            [response_subcode] => 2
+            [response_reason_code] => 13
+            [response_reason_text] => (TESTMODE) The merchant login ID or password is invalid or the account is inactive.
+            [approval_code] => 000000
+            [avs_result_code] => P
+            [transaction_id] => 0
+            [invoice_number] => 
+            [description] => 
+            [amount] => 15.00
+            [method] => 
+            [transaction_type] => auth_capture
+            [customer_id] => 
+            [md5_hash] => 60FA65EDF26DC019D770698145299CAE
+            [card_code_response_code] => 
+            [c_av_vresponse_code] => 
+            [split_tender_id] => 
+            [acc_number] => 
+            [card_type] => 
+            [requested_amount] => 
+            [balance_on_card] => 
+        )
+
+    [__pid] => 5482
+)
+
+2012-08-10T12:21:28+00:00 DEBUG (7): Array
+(
+    [request] => Array
+        (
+            [x_version] => 3.1
+            [x_delim_data] => True
+            [x_relay_response] => False
+            [x_test_request] => TRUE
+            [x_login] => ****
+            [x_tran_key] => ****
+            [x_type] => AUTH_ONLY
+            [x_method] => CC
+            [x_invoice_num] => 100000001
+            [x_amount] => 15
+            [x_currency_code] => USD
+            [x_allow_partial_auth] => False
+            [x_first_name] => Asher
+            [x_last_name] => Ali
+            [x_company] => 
+            [x_address] => NA
+            [x_city] => NA
+            [x_state] => Alabama
+            [x_zip] => 987654
+            [x_country] => US
+            [x_phone] => 032154857
+            [x_fax] => 
+            [x_cust_id] => 2
+            [x_customer_ip] => 182.186.219.180
+            [x_customer_tax_id] => 
+            [x_email] => asher.inbox@gmail.com
+            [x_email_customer] => 1
+            [x_merchant_email] => asher.inbox@gmail.com
+            [x_ship_to_first_name] => Asher
+            [x_ship_to_last_name] => Ali
+            [x_ship_to_company] => 
+            [x_ship_to_address] => NA
+            [x_ship_to_city] => NA
+            [x_ship_to_state] => Alabama
+            [x_ship_to_zip] => 987654
+            [x_ship_to_country] => US
+            [x_po_num] => 
+            [x_tax] => 0
+            [x_freight] => 0
+            [x_card_num] => ****
+            [x_exp_date] => ****
+            [x_card_code] => ****
+        )
+
+    [result] => Array
+        (
+            [response_code] => 3
+            [response_subcode] => 2
+            [response_reason_code] => 13
+            [response_reason_text] => (TESTMODE) The merchant login ID or password is invalid or the account is inactive.
+            [approval_code] => 000000
+            [avs_result_code] => P
+            [transaction_id] => 0
+            [invoice_number] => 
+            [description] => 
+            [amount] => 15.00
+            [method] => 
+            [transaction_type] => auth_capture
+            [customer_id] => 
+            [md5_hash] => 60FA65EDF26DC019D770698145299CAE
+            [card_code_response_code] => 
+            [c_av_vresponse_code] => 
+            [split_tender_id] => 
+            [acc_number] => 
+            [card_type] => 
+            [requested_amount] => 
+            [balance_on_card] => 
+        )
+
+    [__pid] => 5552
+)
+
+2012-08-10T13:23:55+00:00 DEBUG (7): Array
+(
+    [request] => Array
+        (
+            [x_version] => 3.1
+            [x_delim_data] => True
+            [x_relay_response] => False
+            [x_test_request] => TRUE
+            [x_login] => ****
+            [x_tran_key] => ****
+            [x_type] => AUTH_ONLY
+            [x_method] => CC
+            [x_invoice_num] => 100000001
+            [x_amount] => 30
+            [x_currency_code] => USD
+            [x_allow_partial_auth] => False
+            [x_first_name] => Asher
+            [x_last_name] => Ali
+            [x_company] => 
+            [x_address] => NA
+            [x_city] => NA
+            [x_state] => Alaska
+            [x_zip] => 98754654
+            [x_country] => US
+            [x_phone] => 032165496874
+            [x_fax] => 
+            [x_cust_id] => 2
+            [x_customer_ip] => 182.186.219.180
+            [x_customer_tax_id] => 
+            [x_email] => asher.inbox@gmail.com
+            [x_email_customer] => 1
+            [x_merchant_email] => asher.inbox@gmail.com
+            [x_ship_to_first_name] => Asher
+            [x_ship_to_last_name] => Ali
+            [x_ship_to_company] => 
+            [x_ship_to_address] => NA
+            [x_ship_to_city] => NA
+            [x_ship_to_state] => Alaska
+            [x_ship_to_zip] => 98754654
+            [x_ship_to_country] => US
+            [x_po_num] => 
+            [x_tax] => 0
+            [x_freight] => 0
+            [x_card_num] => ****
+            [x_exp_date] => ****
+            [x_card_code] => ****
+        )
+
+    [result] => Array
+        (
+            [response_code] => 3
+            [response_subcode] => 2
+            [response_reason_code] => 13
+            [response_reason_text] => (TESTMODE) The merchant login ID or password is invalid or the account is inactive.
+            [approval_code] => 000000
+            [avs_result_code] => P
+            [transaction_id] => 0
+            [invoice_number] => 
+            [description] => 
+            [amount] => 30.00
+            [method] => 
+            [transaction_type] => auth_capture
+            [customer_id] => 
+            [md5_hash] => B585F1A14CCFB3BE4F8E19E04D101D74
+            [card_code_response_code] => 
+            [c_av_vresponse_code] => 
+            [split_tender_id] => 
+            [acc_number] => 
+            [card_type] => 
+            [requested_amount] => 
+            [balance_on_card] => 
+        )
+
+    [__pid] => 7578
+)
+
+2012-08-11T07:10:27+00:00 DEBUG (7): Array
+(
+    [request] => Array
+        (
+            [x_version] => 3.1
+            [x_delim_data] => True
+            [x_relay_response] => False
+            [x_test_request] => TRUE
+            [x_login] => ****
+            [x_tran_key] => ****
+            [x_type] => AUTH_ONLY
+            [x_method] => CC
+            [x_invoice_num] => 100000001
+            [x_amount] => 90
+            [x_currency_code] => USD
+            [x_allow_partial_auth] => False
+            [x_first_name] => Asher
+            [x_last_name] => Ali
+            [x_company] => 
+            [x_address] => NA
+            [x_city] => NA
+            [x_state] => Alaska
+            [x_zip] => 38000
+            [x_country] => US
+            [x_phone] => 0000000000
+            [x_fax] => 
+            [x_cust_id] => 2
+            [x_customer_ip] => 182.186.158.141
+            [x_customer_tax_id] => 
+            [x_email] => asher.inbox@gmail.com
+            [x_email_customer] => 1
+            [x_merchant_email] => asher.inbox@gmail.com
+            [x_ship_to_first_name] => Asher
+            [x_ship_to_last_name] => Ali
+            [x_ship_to_company] => 
+            [x_ship_to_address] => NA
+            [x_ship_to_city] => NA
+            [x_ship_to_state] => Alaska
+            [x_ship_to_zip] => 38000
+            [x_ship_to_country] => US
+            [x_po_num] => 
+            [x_tax] => 0
+            [x_freight] => 0
+            [x_card_num] => ****
+            [x_exp_date] => ****
+            [x_card_code] => ****
+        )
+
+    [result] => Array
+        (
+            [response_code] => 3
+            [response_subcode] => 2
+            [response_reason_code] => 13
+            [response_reason_text] => (TESTMODE) The merchant login ID or password is invalid or the account is inactive.
+            [approval_code] => 000000
+            [avs_result_code] => P
+            [transaction_id] => 0
+            [invoice_number] => 
+            [description] => 
+            [amount] => 90.00
+            [method] => 
+            [transaction_type] => auth_capture
+            [customer_id] => 
+            [md5_hash] => F0F89625719AE78E9EC89213334A97FD
+            [card_code_response_code] => 
+            [c_av_vresponse_code] => 
+            [split_tender_id] => 
+            [acc_number] => 
+            [card_type] => 
+            [requested_amount] => 
+            [balance_on_card] => 
+        )
+
+    [__pid] => 25649
+)
+
+2012-08-11T21:15:10+00:00 DEBUG (7): Array
+(
+    [request] => Array
+        (
+            [x_version] => 3.1
+            [x_delim_data] => True
+            [x_relay_response] => False
+            [x_test_request] => TRUE
+            [x_login] => ****
+            [x_tran_key] => ****
+            [x_type] => AUTH_ONLY
+            [x_method] => CC
+            [x_invoice_num] => 100000001
+            [x_amount] => 30
+            [x_currency_code] => USD
+            [x_allow_partial_auth] => False
+            [x_first_name] => Asher
+            [x_last_name] => Ali
+            [x_company] => 
+            [x_address] => NA
+            [x_city] => NA
+            [x_state] => Alaska
+            [x_zip] => 38000
+            [x_country] => US
+            [x_phone] => 0000000000
+            [x_fax] => 
+            [x_cust_id] => 2
+            [x_customer_ip] => 182.186.158.141
+            [x_customer_tax_id] => 
+            [x_email] => asher.inbox@gmail.com
+            [x_email_customer] => 1
+            [x_merchant_email] => asher.inbox@gmail.com
+            [x_ship_to_first_name] => Asher
+            [x_ship_to_last_name] => Ali
+            [x_ship_to_company] => 
+            [x_ship_to_address] => NA
+            [x_ship_to_city] => NA
+            [x_ship_to_state] => Alaska
+            [x_ship_to_zip] => 38000
+            [x_ship_to_country] => US
+            [x_po_num] => 
+            [x_tax] => 0
+            [x_freight] => 0
+            [x_card_num] => ****
+            [x_exp_date] => ****
+            [x_card_code] => ****
+        )
+
+    [result] => Array
+        (
+            [response_code] => 3
+            [response_subcode] => 2
+            [response_reason_code] => 13
+            [response_reason_text] => (TESTMODE) The merchant login ID or password is invalid or the account is inactive.
+            [approval_code] => 000000
+            [avs_result_code] => P
+            [transaction_id] => 0
+            [invoice_number] => 
+            [description] => 
+            [amount] => 30.00
+            [method] => 
+            [transaction_type] => auth_capture
+            [customer_id] => 
+            [md5_hash] => B585F1A14CCFB3BE4F8E19E04D101D74
+            [card_code_response_code] => 
+            [c_av_vresponse_code] => 
+            [split_tender_id] => 
+            [acc_number] => 
+            [card_type] => 
+            [requested_amount] => 
+            [balance_on_card] => 
+        )
+
+    [__pid] => 11401
+)
+

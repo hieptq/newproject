@@ -1,0 +1,193 @@
+/**
+ * @name         :  Apptha One Step Checkout
+ * @version      :  1.1
+ * @since        :  Magento 1.4
+ * @author       :  Apptha - http://www.apptha.com
+ * @copyright    :  Copyright (C) 2011 Powered by Apptha
+ * @license      :  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @Creation Date:  June 20 2011
+ * 
+ * */
+
+.clear{clear:both; height:0px; font-size:0px}
+.clearfix:after{ clear:both;  display:block;  content:"";  height:0px;  visibility:hidden}
+.clearfix{ display:inline-block}
+
+* html .clearfix{ height:1%}
+.clearfix{ display:block}
+li.clearfix{ display:list-item}
+
+
+.onepage{}
+.logo-onepage{ background: transparent url(images/onestepcheckout.png) no-repeat scroll 100% 0%;width:528px;height:48px;margin:0px auto;}
+.onepage-page-title{margin:16px 0px 17px 5px;overflow: hidden;width: 100%;}
+.login-reg{width:100%;border-bottom: 2px solid #4e4e4e;margin:17px 0 0 0;font-weight:bold;}
+.onepage li{list-style: none;}
+.onepage .form-list .input-box { width:auto;}
+ #co-form .input-box{width:auto;}
+.column-1,.column-2,.column-3{width:29%;float:left; padding:2%;background: transparent url(images/line-gradient.gif) no-repeat scroll 100% 0%;}
+.column-3{background:none;}
+.onepage .page-title{border:none !important; margin-bottom: 10px;}
+.onepage .form-list{width: 100%;padding:0px;}
+.onepage .form-list .customer-name .field{}
+
+.billing-bg {width:31px;height:41px;background: transparent url(images/1.png) no-repeat scroll 100% 0%;display:block;float:left;margin-right:10px; }
+.shipping-method-bg {width:31px;height:41px;background: transparent url(images/2.png) no-repeat scroll 100% 0%;display:block;float:left;margin-right:10px; }
+.payment-bg {width:31px;height:41px;background: transparent url(images/3.png) no-repeat scroll 100% 0%;display:block;float:left;margin-right:10px; }
+.review-bg {width:31px;height:41px;background: transparent url(images/tick-icon.png) no-repeat scroll 100% 0%;display:block;float:left;margin-right:10px; }
+.shipment-methods { padding-left:3px; }
+.gift-messages {padding-left: 3px;}
+.guest-reg{padding:0 0 5px 3px;display:block;color: #E87403;font-weight: bold;}
+#checkout-payment-method-load {padding-left: 3px;}
+#checkout-review-load {padding:0 0 10px 3px; }
+#billing-new-address-form{padding-left:2px;}
+.col-1 .control {float:left;padding:0 10px 0 0;}
+#onepage-shipping_method dd {font-weight:bold; }
+.shipment-methods dd {margin-bottom: 5px;}
+.checkout-agreements .agreement-content {height:64px;}
+.product-total {border-top:1px solid #ccc;border-bottom: 1px solid #ccc;}
+.col-1 .control label {padding:0px 0px 0 5px;}
+.validation-advice{}
+#billing:firstname .validation-advice{width:auto;}
+#billing:lastname .validation-advice{width:auto;}
+.name-lastname label {margin-top:8px;}
+
+#checkout-review-load table.onestepcheckout-summary {display:table;}
+#checkout-review-load table.onestepcheckout-summary tr th { border-bottom: 1px solid #ccc; }
+#onepage-login{padding: 0 0 20px 0;}
+#onepage-billing{padding: 0 0 20px 0;}
+#onepage-billing  .customer-name .input-box input.input-text{float:left}
+#onepage-billing .wide .input-box input.input-text{width:220px;}
+#onepage-billing  .wide .input-box .address-select{width:220px;}
+#onepage-billing  .wide label{width:220px;}
+
+#onepage-shipping{padding: 0 0 20px 0;}
+#onepage-shipping .wide .input-box input.input-text{width:220px;}
+#onepage-shipping .customer-name .input-box input.input-text{}
+#onepage-shipping .wide .input-box .address-select{width:220px;}
+#onepage-shipping .wide label{width:220px;}
+
+#onepage-shipping_method{padding: 0 0 20px 0;}
+#onepage-payment{padding: 0 0 20px 0;}
+#onepage-review{padding: 0 0 20px 0;}
+
+#bg_fade{background-color: #555;height:100%;left: 0px;margin: 0px;padding: 0px;position: fixed;
+top: 0px;bottom:0px;width: 100%;z-index: 1000;}
+
+
+
+#onepage-review table.onestepcheckout-summary th.name, th.qty, th.total{width:75px; font-weight: bold;}
+#onepage-review table.onestepcheckout-summary thead{border-bottom:  1px solid #ccc;}
+#onepage-review table.onestepcheckout-summary tr.items td{ border-bottom: 1px solid #ccc; padding: 5px 0;}
+#onepage-review table.onestepcheckout-summary tr.items td{width:75px;}
+#onepage-review table.onestepcheckout-totals tr td{width:90px;}
+#onepage-review table.onestepcheckout-totals tr td{border-bottom: 1px solid #ccc; padding: 5px 0;}
+#onepage-checkout-shipping-method-additional-load .input-box input{width:176px;}
+#onepage-checkout-shipping-method-additional-load .input-box textarea{width:176px;}
+.agree label{padding-left: 5px;}
+.page-title h1{color:#525252;font-family:verdana;text-align: left;font-size:20px; }
+
+div.loading-ajax {
+    height: 50px;
+    text-align: center;
+    background-image: url(images/ajax-loader.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+div.please-wait-loading {
+    height:40px;
+  
+    text-align: center;
+    background-image: url(images/ajax-loader.gif);
+    background-repeat: no-repeat;
+    background-position: 30% 0%;
+}
+.load-wait{color:#E87403;}
+div.wait{height:80px;float:right;}
+button.btn-class{padding: 10px;background-color:#FF5C00;float:left;}
+
+/* login-popup design */
+a.close{float:right;margin-top: -33px;margin-right: -11px;}
+#gift-form {
+	background: url('images/popup_bg.png') 0 0 repeat-y;
+	padding: 10px;
+	width: 520px;
+	opacity: 1 !important;
+}
+.onestepcheckout-popup-wrapper {
+	background: #fff;
+	padding: 20px;
+	width: 460px;
+}
+
+#redeem-form {
+	background: url('images/popup_bg.png') 0 0 repeat-y;
+	padding: 10px;
+	height: auto;
+	width: auto;
+	opacity: 1 !important;
+}
+
+#co-form select{
+width:268px
+
+}
+#ccsave_expiration,#ccsave_expiration_yr{
+    width:130px!important;
+}
+#ccsave_expiration_yr {
+    margin-left:10px;
+}
+#gift-form table{border:0;}
+#gift-form table tbody tr td {
+	padding: 0;
+	font-family: 'CenturyGothicRegular';
+}
+#gift-form table label {
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #414042;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+#gift-form table .input-text{
+	font-family: 'CenturyGothicRegular';
+	border: none;
+	width: 250px;
+	font-size: 14px;
+	height: 30px;
+	padding: 2px 10px;
+	background-color: #e6e7e8;
+	
+}
+#gift-form table tbody tr:nth-child(even) {
+	background: transparent;
+}
+
+#gift-form table .button {
+	padding: 6px 15px 9px;
+}
+
+#register-form {
+	background: url('images/popup_bg.png') 0 0 repeat-y;
+	padding: 10px;
+	width: 520px;
+	opacity: 1 !important;
+}
+.clear{clear: both;}
+.onestepcheckout-error{color:red;font-weight: normal;}
+button.login-btn{background-color: #66A094;padding: 5px;border:none;font-weight: bold;color:#fff;border:none;}
+.buttons-set{border:none; margin:0px;padding:0px;float:right;}
+/* login-popup design */
+.input-box .v-fix #ccsave_expiration{width:152px;}
+.onestepcheckout-summary .total  {text-align: right !important}
+.onestepcheckout-totals .product-total .value .price{float:right !important}
+.grand-total .value .price{float:right !important}
+
+#checkout-review-table-wrapper tr{border-bottom:1px solid #ccc;}
+#checkout-review-table-wrapper tr th{padding:2%;}
+#checkout-review-table tr td{border-bottom:1px solid #ccc;padding:5px 0;}
+caption, th, td{font-weight:normal;}
+.onestepcheckout-coupons{margin-bottom:10px;}
+.sp-methods select.month{width:152px;}

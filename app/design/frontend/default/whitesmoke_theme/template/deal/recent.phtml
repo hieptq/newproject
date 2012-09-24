@@ -1,0 +1,155 @@
+<?php
+$products = array();
+$currentTime = Mage_Core_Model_Locale::date(null, null, "en_US", true);
+$i = 0;
+$limit = $_GET['limit'];
+
+$p = $_GET['p'];
+if ($p != "") {
+    $start = ($p - 1) * $limit;
+} else {
+    $start = 0;
+}
+$products = $this->getRecentProduct($limit, $start);
+?>
+<?php
+$recentEnabled=Mage::getStoreConfig('deal/recent/as_recent');
+$resource = Mage::getSingleton('core/resource');
+$read = $resource->getConnection('catalog_read');
+$orderTable = $resource->getTableName('sales/order');
+$city = Mage::getSingleton('core/session')->getCity();
+//print_r($city);exit;
+$salesflatorderitem = (string) Mage::getConfig()->getTablePrefix() . 'sales_flat_order_item';
+$total_orders = "0";
+$id = "0";
+$a = 0;
+
+foreach ($products as $_product) {
+    $cities =explode(',',$_product->getcity());
+    if (in_array($city, $cities)) {
+        $a++;
+    }
+}
+$var = $a;
+$attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product', 'dealcity');
+$attribute = Mage::getModel('eav/config')->getAttribute('catalog_product', '$attributeId');
+foreach ($attribute->getSource()->getAllOptions(true, true) as $option) {
+     if ($option['value'] != '') {
+    $value = $option['value'];
+    $cities[$value] = $option['label'];
+     }
+}
+$count = 0;
+
+if (count($products) > 0 && $recentEnabled == 1) {
+    foreach ($products as $_product) {
+        $cities =explode(',',$_product->getdealcity());
+
+        if (in_array($city, $cities)) {
+
+            //code to check if the deal is current or not, if deal is current, deal will not be displayed, elseif the deal time is over then deal will be displayed
+            $startTime = $_product->getstarttime();
+            $ProductToDate = $_product->getResource()->formatDate($_product->getspecial_to_date(), false);
+            $ProductFromDate = $_product->getResource()->formatDate($_product->getspecial_from_date(), false);
+            $Fromtime = strtotime($ProductFromDate. ' ' . $startTime);
+            if (strtotime($currentTime) > strtotime($ProductToDate . ' ' . $_product->getTime())) {
+?>
+<?php
+                if (!$_product->isGrouped()) {
+                    $count = $count +1;
+                    $current_product = $_product->getProductUrl();
+                    $productId= $_product->getId();
+                    $todayDate = $_product->getResource()->formatDate($_product->getspecial_from_date(), false);
+                    $fromdate = date('F jS, Y', strtotime($todayDate)); //                   
+                    $discount_price = $_product->getPrice() - $_product->getSpecialPrice();
+                    $discount = ($discount_price * 100) / $_product->getPrice();
+                    $discount = round($discount);
+                    $resultQuantity = Mage::getBlockSingleton('deal/deal')->getQuantityPurchase($_product);
+                    // getting value of base URL to prepare URL, for recent deals view page
+                    //starts
+                    $baseUrl = Mage::getBaseUrl();
+                    $URL = $current_product;
+                    //ends
+                    $dealStatus[0] = "complete";
+                    $dealStatus[1] = "processing";
+                    $select = $read->select()
+                                    ->from(array('cp' => $orderTable))
+                                    ->join(array('pei' => $salesflatorderitem), 'pei.order_id=cp.entity_id', array())
+                                    ->where('pei.product_id=?', $productId)
+                                    ->where('cp.status IN (?)', $dealStatus);
+
+                    $orders_list = $read->fetchAll($select);
+
+                    $fetch_list = array();
+                    $quantity = array();
+                    $quantity[0] = "0";
+
+                    //echo $select;
+                    if (count($orders_list) > 0) {
+
+                        foreach ($orders_list as $rows) {
+                            $order_id = $rows['entity_id'];
+                            $order = Mage::getModel('sales/order')->load($order_id);
+                            $items = $order->getAllItems();
+                            //print_r($items);
+                            $itemcount = count($items);
+                            $name = array();
+                            $unitPrice = array();
+                            $sku = array();
+                            $ids = array();
+                            $qty = array();
+                            foreach ($items as $itemId => $item) {
+                                if ($productId == $item->getProductId()) {
+                                    $total_orders = $total_orders + 1;
+                                    $qty[0] = $item->getQtyOrdered();
+                                    $quantity[0] = $quantity[0] + $qty[0];
+                                }
+                            }
+                        }
+                    }
+?>
+                    
+                    
+                    <div class="clsbord">
+                        <form name="recentForm<?php echo $count;?>" method="post">
+                            <input type="hidden" value="1" name="recent"/>
+                        </form>
+                        <a href="<?php echo $URL; ?>" onclick="javascript:document.recentForm<?php echo $count.'.submit()';?>">
+                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image'); ?>" width="192" height="130" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>"/>
+                            <span class="offer-bg"><?php echo $discount . "%"; ?> <?php echo $this->__('Off') ?></span>
+                        </a>
+                            <h6 class="head-title"><a href="<?php echo $URL; ?>" onclick="javascript:document.recentForm<?php echo $count.'.submit()';?>"><?php echo substr($this->htmlEscape($_product->getName()), 0, 25) . "..." ?></a></h6>
+                            <p class="fineprint"><?php echo substr($this->htmlEscape($_product->getFineprint()), 0, 100) ?></p>
+                            <span class="deal-purchased"><?php echo $resultQuantity[0]. " "; ?><?php echo $this->__('Purchased'); ?></span>
+                            <div class="clear"></div>
+     <ul class="floatleft dealstatus">
+                                    <li class="deal-status-grid">
+<?php
+                    if ($_product->gettarget_number() <= $quantity[0]) { ?>
+                    <img alt="Tick" src=' <?php echo $this->getSkinUrl('images/Tick_32.png') ?>' width="16"/>
+                    <?php
+                    } else { ?>
+                    <img alt="Tick" src=' <?php echo $this->getSkinUrl('images/Cross-32.png') ?>' width="16"/>
+                    <?php
+
+                    }
+  ?>
+                    <?php
+                            if ($_product->gettarget_number() <= $quantity[0]) {
+                                echo $this->__('Deal Achieved');
+                            } else {
+                                echo $this->__('Deal Not Achieved');
+                            } ?></li>
+                </ul>
+    </div>
+    
+<?php
+                        }
+                        $i = $i + 1;
+                    }
+                }
+            }
+        } if($i==0) {
+            echo "<h1 class='no-active-deal'>No Recent Deals!</h1>";
+        }
+?>

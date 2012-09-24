@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<DevelopersIndia_AjaxAddToCart>
+			<version>1.0.1</version>
+		</DevelopersIndia_AjaxAddToCart>
+	</modules>
+	
+	<global>
+		<helpers>
+			<ajaxaddtocart>
+				<class>DevelopersIndia_AjaxAddToCart_Helper</class>
+			</ajaxaddtocart>
+		</helpers>
+		<blocks>
+			<ajaxaddtocart>
+				<class>DevelopersIndia_AjaxAddToCart_Block</class>
+			</ajaxaddtocart>
+		</blocks>
+	</global>
+	
+	<frontend>
+		<!--<routers>
+			<checkout>
+				<args>
+					<modules>
+						<DevelopersIndia_AjaxAddToCart before="Mage_Checkout">DevelopersIndia_AjaxAddToCart</DevelopersIndia_AjaxAddToCart>
+					</modules>
+				</args>
+			</checkout>
+		</routers>-->
+		<routers>
+			<ajaxaddtocart>
+				<use>standard</use>
+				<args>
+					<module>DevelopersIndia_AjaxAddToCart</module>
+					<frontName>ajaxaddtocart</frontName>
+				</args>
+			</ajaxaddtocart>
+        </routers>
+		<layout>
+            <updates>
+                <ajaxaddtocart>
+                    <file>daddtocart.xml</file>
+                </ajaxaddtocart>
+            </updates>
+        </layout>
+	</frontend>	
+	
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+                        <system>
+							<children>
+								<config>
+									<children>
+										<ajaxaddtocart translate="title">
+                                            <title>Ajax Add To Cart</title>
+                                            <sort_order>10</sort_order>
+                                        </ajaxaddtocart>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	
+	<default>
+		<ajaxaddtocart>
+			<ajaxaddtocart_settings>
+				<active>0</active>
+				<enable_success_message>1</enable_success_message>
+				<!--<box_width>400</box_width>-->
+				<go_to_cart_text>Go To Cart Page</go_to_cart_text>
+				<continue_shopping_text>Continue Shopping</continue_shopping_text>
+				<button_bg_color>#F18200</button_bg_color>
+				<button_border_color>#DE5400</button_border_color>
+				<button_font_color>#FFFFFF</button_font_color>				
+			</ajaxaddtocart_settings>
+		</ajaxaddtocart>
+	</default>
+</config>

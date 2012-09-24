@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <developersindiatab translate="label" module="ajaxaddtocart">
+            <label>DevelopersIndia.info Extensions</label>
+            <sort_order>200</sort_order>
+        </developersindiatab>
+    </tabs>
+   <sections>
+        <ajaxaddtocart translate="label" module="ajaxaddtocart">
+			<label>Ajax Add To Cart</label>
+            <tab>developersindiatab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>40</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <ajaxaddtocart_settings translate="label">
+                    <label>DevelopersIndia Ajax Add To Cart Settings </label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+						<enable_success_message translate="label">
+                            <label>Want to enable Success Message Box?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Success Message Box will display when any user add product into cart.</comment>
+                        </enable_success_message>
+						<!--<box_width translate="label">
+                            <label>Success Message Box Width(In Pixel)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Example: 300, 400, 500 or 600</comment>
+                        </box_width>-->
+						<!--<box_height translate="label">
+                            <label>Success Message Box Height(In Pixel)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Example: 100, 50, 55 or 60</comment>
+                        </box_height>-->
+						<go_to_cart_text translate="label">
+							<label>"Go To Cart Page" Button Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>This button is displayed on Success Message Box.</comment>
+						</go_to_cart_text>
+						<continue_shopping_text translate="label">
+                            <label>"Continue Shopping" Button Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>This button is displayed on Success Message Box.</comment>
+                        </continue_shopping_text>
+						<button_bg_color translate="label">
+                            <label>Success Message Box Button Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Example: #FFFFFF or #000000. If blank then #F18200 will be used.</comment>
+                        </button_bg_color>
+						<button_border_color translate="label">
+                            <label>Success Message Box Button Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Example: #FFFFFF or #000000. If blank then #DE5400 will be used.</comment>
+                        </button_border_color>
+						<button_font_color translate="label">
+                            <label>Success Message Box Button Font Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Example: #FFFFFF or #000000. If blank then #FFFFFF will be used.</comment>
+                        </button_font_color>
+						<processing_image translate="label comment">
+                            <label>Processing Image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">di/ajaxaddtocart/images</upload_dir>
+                            <base_url type="media" scope_info="1">di/ajaxaddtocart/images</base_url>
+                            <sort_order>111</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This image will display at frontend during ajax request processing. If empty, default will be used.&lt;br /&gt;(jpeg, gif, png)</comment>
+                        </processing_image>
+						<!--<delete_confirm_text translate="label">
+                            <label>Delete confirmation text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>This text will display in confirmation box which will poped up when any user try to remove any product from cart. If blank then "Are you sure?" will be used.</comment>
+                        </delete_confirm_text>-->
+                    </fields>
+                </ajaxaddtocart_settings>
+            </groups>
+        </ajaxaddtocart>
+    </sections>
+</config>

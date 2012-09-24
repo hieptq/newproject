@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <location_index_index>
+        <reference name="content">
+            <block type="location/location" name="location" template="location/location.phtml" />
+        </reference>
+    </location_index_index>
+</layout> 
